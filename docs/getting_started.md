@@ -9,7 +9,7 @@
 "tags": []
 ---
 
-<!-- TODO update chart to current syntax -->
+### What is mec2?
 
 `mec2` is a physics engine, which purpose is to simulate the movement of two dimensional mechanical linkages.
 It has a new concept of treating elements as particles whose movements follow constraints.
@@ -18,6 +18,14 @@ It has a new concept of treating elements as particles whose movements follow co
 For rendering the model the graphics library `g2` is used.
 To read more about `g2` have a look [here](github.com/goessner/g2).
 Models are described using the human and machine readable `JSON` format.
+
+### How can we use it?
+
+to draw and simulate Model of mechanismus like these hier.
+
+![img](img/Kurbelschwinge.png)
+
+![img](img/Schubkurbel.png)
 
 A `mec2` model can consist of up to 9 different modules.
 <!-- TODO: Make all of these elements links -->
@@ -143,11 +151,6 @@ The same model (but embedded into a custom `<mec-2>` HTML element) is issued by:
 }
 </mec-2>
 
-<script src="../g2/src/g2.js"></script>
-<script src="../mec2/bin/g2.selector.js"></script>
-<script src="../mec2/bin/canvasInteractor.js"></script>
-<script src="../mec2/mec2.js"></script>
-<script src="../mec2/bin/mec.htmlelement.js"></script>
 ```
 <!-- TODO Create unified import... -->
 Please note that for the current usage of the custom HTML Element additional files have to be imported.
