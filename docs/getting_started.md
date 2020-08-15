@@ -98,7 +98,6 @@ Alternatively the embedded `mec-2` HTML custom element can be used.
 To render models the graphics library `g2` is used, which is not only recommended, but also integrated into `mec2` in various ways.
 Therefore it is advised to import it as well.
 
-
 <!-- TODO Create unified import... -->
 Please note that for the current usage of the custom HTML Element additional files have to be imported.
 
@@ -112,6 +111,7 @@ At first `g2` and `mec2` are imported:
 <script src="../../g2/src/g2.js"></script>
 <script src="../../mec2/mec2.min.js"></script>
 ```
+
 Both consist of different modules, which can be further inspected by looking at the respective wikis.
 Please note that `mec2.min` is a combination of all (currently) existing mec2 modules.
 If there is no need for minimalism, this is a valid shortcut to include everything mec2 has to offer.
@@ -187,7 +187,7 @@ To support the user with some analysis options `views` can be used, brought by t
 
 `views` offers different options to choose from to make features visible.
 These different options share a lot of properties, which are:
- - `show`: which is a mapping to the different properties which can be shown here. (position, velocity, acceleration, momentum, force...)
+- `show`: which is a mapping to the different properties which can be shown here. (position, velocity, acceleration, momentum, force...)
  - `of`: is the `id` which should be singled out to determine the property which is to visualize. Needless to say the user has to take care that the respective element with this `id` has to have the property defined by `show`.
  - `as`: determines the `view` which is to be used. In this example `trace`, `vector` and `chart` are represented, but there are others to choose from.
  - `t0`: defines when to start the recording (referring to the model timer).
