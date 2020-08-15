@@ -57,7 +57,6 @@ to draw and simulate Model of mechanismus like these hier.
         <script src="bin/mec2.min.js"></script>
         <script src="bin/mec.htmlelement.js"></script>
 
-
 ![img](img/Kurbelschwinge.png)
 
 <mec-2 width="401" height="301" grid cartesian x0="100" y0="125">
@@ -74,8 +73,13 @@ to draw and simulate Model of mechanismus like these hier.
 ]
 }
 </mec-2>
+<script src="mec2/bin/canvasInteractor.js"></script>
+<script src="mec2/bin/g2.js"></script>
+<script src="mec2/bin/g2.selector.js"></script>
+<script src="mec2/mec2.js"></script>
+<script src="mec2/bin/mec.htmlelement.js"></script>
 
-### Which Knowlge are important to start with mec2
+### Which Knowlge are important to start with mec2?
 
 A `mec2` model can consist of up to 9 different modules.
 <!-- TODO: Make all of these elements links -->
