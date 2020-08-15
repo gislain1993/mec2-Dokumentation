@@ -19,13 +19,63 @@ For rendering the model the graphics library `g2` is used.
 To read more about `g2` have a look [here](github.com/goessner/g2).
 Models are described using the human and machine readable `JSON` format.
 
-### How can we use it?
+### what can we draw with it?
 
 to draw and simulate Model of mechanismus like these hier.
 
+![img](img/Schubkurbel.png)
+
+<mec-2 width="400" height="300" grid cartesian>
+        {
+            "nodes": [
+                { "id": "A0", "x": 75, "y": 125, "base": true },
+                { "id": "A", "x": 100, "y": 175 },
+                { "id": "B0", "x": 300, "y": 125 }
+            ],
+            "constraints": [
+                {
+                  "id": "a", "p1": "A0", "p2": "A",
+                  "len": { "type": "const" },
+                  "ori": { "type": "drive", "repeat": 3 }
+                }, {
+                  "id": "b", "p1": "B0", "p2": "A",
+                  "len": { "type": "const" }
+                }, {
+                  "id": "c", "p1": "A0", "p2": "B0",
+                  "ori": { "type": "const" }
+                }
+            ],
+            "shapes": [
+                { "type": "fix", "p": "A0" },
+                { "type": "flt", "p": "B0" }
+            ]
+        }
+ </mec-2>
+        <script src="bin/g2.js"></script>
+        <script src="bin/g2.selector.js"></script>
+        <script src="bin/canvasInteractor.js"></script>
+        <script src="bin/mec2.min.js"></script>
+        <script src="bin/mec.htmlelement.js"></script>
+
+
 ![img](img/Kurbelschwinge.png)
 
-![img](img/Schubkurbel.png)
+<mec-2 width="401" height="301" grid cartesian x0="100" y0="125">
+{   "nodes":[
+    {"id":"A0","x":0,"y":0,"base":true},
+    {"id":"A", "x":0,"y":50},
+    {"id":"B", "x":170,"y":120},
+    {"id":"B0","x":200,"y":0,"base":true}
+],
+"constraints":[
+    {"id":"a","p1":"A0","p2":"A","len":{"type":"const"},"ori":{"type":"drive","repeat":5}},
+    {"id":"b","p1":"A","p2":"B","len":{"type":"const"}},
+    {"id":"c","p1":"B0","p2":"B","len":{"type":"const"}}
+]
+}
+</mec-2>
+
+### Which Knowlge are important to start with mec2
 
 A `mec2` model can consist of up to 9 different modules.
 <!-- TODO: Make all of these elements links -->
@@ -50,69 +100,56 @@ Therefore it is advised to import it as well.
 
 ### Example
 
-![mech](img/view_1.gif)
+<mec-2 width="300" height="300" grid cartesian>
+{
+    "nodes": [
+        { "id": "A0", "x": 100, "y": 50, "base": true, "idloc": "s" },
+        { "id": "B0", "x": 200, "y": 50, "base": true, "idloc": "s" },
+        { "id": "A", "x": 175, "y": 150, "idloc": "ne" },
+        { "id": "B", "x": 125, "y": 150, "idloc": "nw" }
+    ],
+    "constraints": [
+        { "id": "a", "p1": "A0", "p2": "A", "len": { "type": "const" } },
+        { "id": "b", "p1": "A", "p2": "B", "len": { "type": "const" },
+          "ori": { "type": "drive", "func": "linear", "Dt": 5, "repeat": 2 } },
+        { "id": "c", "p1": "B0", "p2": "B", "len": { "type": "const" } }
+    ],
+    "views": [
+        { "show": "pole", "of": "b", "as": "trace",
+          "mode": "static", "t0": 0.02, "Dt": 9.98, "fill": "#90ee9088" },
+        { "show": "pole", "of": "b", "ref": "b", "as": "trace",
+          "mode": "static", "t0": 0.02, "Dt": 9.98, "fill": "#eeeeee88" }
+    ]
+}
+</mec-2>
 
 This mechanism can be generated using two types of syntax.
 
 The necessary functions to simulate and render the mechanism can be issued manually, or a predefined custom `<mec-2>` HTML element can be used.
 
 ```html
-<head>
-    <meta charset='utf-8'>
-</head>
-<canvas id="cv" width="550" height="300"></canvas>
-<script src="../g2/src/g2.js"></script>
-<script src="../mec2/mec2.js"></script>
-<script>
-    const ctx = document.getElementById("cv").getContext("2d");
-
-    const model = {
-        "nodes": [
-            { "id": "A0", "x": 75, "y": 50, "base": true },
-            { "id": "A", "x": 75, "y": 100 },
-            { "id": "B", "x": 275, "y": 170 },
-            { "id": "B0", "x": 275, "y": 50, "base": true },
-            { "id": "C", "x": 125, "y": 175 }
-        ],
-        "constraints": [
-        {
-            "id": "a", "p1": "A0", "p2": "A", "len": { "type":"const" },
-            "ori": { "type": "drive", "Dt": 2, "Dw": 6.28 }
-        }, {
-            "id": "b", "p1": "A", "p2": "B", "len": { "type":"const" }
-        }, {
-            "id": "c", "p1": "B0", "p2": "B", "len": { "type":"const" }
-        }, {
-            "id": "d", "p1": "B", "p2": "C", "len": {       "type":"const" },
-            "ori": { "ref": "b", "type": "const" }
-        }
-        ],
-        "views": [
-            {
-                "show": "pos", "of": "C", "as": "trace", "Dt":2.1,
-                "mode":"preview", "fill":"orange"
-            }, {
-                "show": "vel", "of": "C", "as": "vector"
-            }, {
-                "as": "chart", "x": 340, "y": 75, "Dt": 1.9,
-                "show": "wt", "of": "b"
-            }
-        ]
-    };
-    mec.model.extend(model);
-    model.init();
-    const g = g2().del().clr().view({ cartesian: true });
-
-    model.draw(g);
-    (function render() {
-        model.tick(1/60);
-        g.exe(ctx);
-        requestAnimationFrame(render)
-    })();
-</script>
-```
-
-The same model (but embedded into a custom `<mec-2>` HTML element) is issued by:
+<mec-2 width="300" height="300" grid cartesian>
+{
+    "nodes": [
+        { "id": "A0", "x": 100, "y": 50, "base": true, "idloc": "s" },
+        { "id": "B0", "x": 200, "y": 50, "base": true, "idloc": "s" },
+        { "id": "A", "x": 175, "y": 150, "idloc": "ne" },
+        { "id": "B", "x": 125, "y": 150, "idloc": "nw" }
+    ],
+    "constraints": [
+        { "id": "a", "p1": "A0", "p2": "A", "len": { "type": "const" } },
+        { "id": "b", "p1": "A", "p2": "B", "len": { "type": "const" },
+          "ori": { "type": "drive", "func": "linear", "Dt": 5, "repeat": 2 } },
+        { "id": "c", "p1": "B0", "p2": "B", "len": { "type": "const" } }
+    ],
+    "views": [
+        { "show": "pole", "of": "b", "as": "trace",
+          "mode": "static", "t0": 0.02, "Dt": 9.98, "fill": "#90ee9088" },
+        { "show": "pole", "of": "b", "ref": "b", "as": "trace",
+          "mode": "static", "t0": 0.02, "Dt": 9.98, "fill": "#eeeeee88" }
+    ]
+}
+</mec-2>
 
 ```html
 <mec-2 width="501" height="301" grid cartesian>
