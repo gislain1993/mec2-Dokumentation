@@ -30,6 +30,25 @@ Using combinations of these properties a variety of motions can be described.
 
 #### Example:
 
+<mec-2 width="300" height="300" grid cartesian>
+{
+    "nodes": [
+        {
+            "id":"A0", "x": 150, "y": 120, "base": true
+        }, {
+            "id":"A", "x": 150, "y": 200
+        }
+    ],
+    "constraints": [
+        {
+            "id":"a","p1":"A0","p2":"A",
+            "len":{"type":"const"},
+            "ori":{"type":"drive","repeat":10,"Dt":3 }
+        }
+    ]
+}  
+</mec-2>
+
 ```json
 {
     "nodes": [
@@ -49,11 +68,34 @@ Using combinations of these properties a variety of motions can be described.
 }  
 ```
 
-![first](img/drive_1.gif)
 
-`- Drive Sequence`
+### ` Drive Sequence`
 
 Drive functions can be composed as a sequence (`'func':'seq'`) of normalized functions, being one of `['const', 'linear', 'quadratic', 'harmonic', 'sinoid', 'poly5']` each. Every segment of a drive sequence must specify its function type `func`, its duration `dt` (always positive) and its value range `dz` (might be negative).
+
+<mec-2 width="300" height="300" grid cartesian>
+{
+    "nodes": [
+        {"id":"A0","x":175,"y":125,"base":true},
+        {"id":"A1","x":175,"y":225}
+    ],
+    "constraints": [
+        {
+            "id": "a", "p1": "A0", "p2": "A1",
+            "len": { "type": "const" },
+            "ori": {
+                "type": "drive",  "Dt": 3, "Dw": -3.14, "repeat":2,
+                "func": "seq", "args": [
+                    { "func": "quadratic", "dt": 3, "dz": 1 },
+                    { "func": "const", "dt": 1 },
+                    {"func": "linear", "dt": 3, "dz": -1 }
+                ]
+            }
+        }
+    ]
+} 
+</mec-2>
+
 
 ```json
 {
@@ -74,7 +116,28 @@ Drive functions can be composed as a sequence (`'func':'seq'`) of normalized fun
     }]
 }
 ```
-![first](img/drive_2.gif)
+### ` Drive reference`
+
+<mec-2 width="300" height="300" grid cartesian>
+{
+    "nodes":[
+        { "id": "A0", "x": 100, "y": 125, "base": true },
+        { "id": "B", "x": 175, "y": 125 },
+        { "id": "B0", "x": 250, "y": 125,"base": true },
+        { "id": "A", "x": 175, "y": 125 }
+    ],
+    "constraints":[
+        { "id": "b", "p1": "B0", "p2": "A",
+          "len": { "type": "const" },
+          "ori": { "type": "drive", "repeat":3 }
+        },
+        { "id": "c", "p1": "A0", "p2": "B",
+          "len": {"type": "const" },
+          "ori": { "type": "const", "ref":"b"}
+        }
+    ]
+}
+</mec-2>
 
 ```json
 {
@@ -96,5 +159,3 @@ Drive functions can be composed as a sequence (`'func':'seq'`) of normalized fun
     ]
 }
 ```
-
-![first](img/drive_3.gif)

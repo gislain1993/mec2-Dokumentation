@@ -28,33 +28,82 @@ Predefined types for geometries are:
 
 ### Examples
 
+<mec-2 width="701" height="301" grid cartesian x0="100" y0="25">
+        {
+            "nodes": [
+                { "id": "A0", "x": 75, "y": 125, "base": true },
+                { "id": "A", "x": 100, "y": 175 },
+                { "id": "B0", "x": 300, "y": 125 }
+            ],
+            "constraints": [
+                {
+                  "id": "a", "p1": "A0", "p2": "A",
+                  "len": { "type": "const" },
+                  "ori": { "type": "drive", "repeat": 3 }
+                }, {
+                  "id": "b", "p1": "B0", "p2": "A",
+                  "len": { "type": "const" }
+                }, {
+                  "id": "c", "p1": "A0", "p2": "B0",
+                  "ori": { "type": "const" }
+                }
+            ],
+            "shapes": [
+                { "type": "fix", "p": "A0" },
+                { "type": "flt", "p": "B0" },
+                {"type": "bar", "p1": "B0", "p2": "A"},
+                {"type": "bar", "p1": "A0", "p2": "A"}
+            ]
+        }
+    </mec-2>
+
 ```json
+<mec-2 width="701" height="301" grid cartesian x0="100" y0="25">
+        {
+            "nodes": [
+                { "id": "A0", "x": 75, "y": 125, "base": true },
+                { "id": "A", "x": 100, "y": 175 },
+                { "id": "B0", "x": 300, "y": 125 }
+            ],
+            "constraints": [
+                {
+                  "id": "a", "p1": "A0", "p2": "A",
+                  "len": { "type": "const" },
+                  "ori": { "type": "drive", "repeat": 3 }
+                }, {
+                  "id": "b", "p1": "B0", "p2": "A",
+                  "len": { "type": "const" }
+                }, {
+                  "id": "c", "p1": "A0", "p2": "B0",
+                  "ori": { "type": "const" }
+                }
+            ],
+            "shapes": [
+                { "type": "fix", "p": "A0" },
+                { "type": "flt", "p": "B0" },
+                {"type": "bar", "p1": "B0", "p2": "A"},
+                {"type": "bar", "p1": "A0", "p2": "A"}
+            ]
+        }
+    </mec-2>
+```
+<mec-2 width="400" height="600" x0="0" y0="0" grid cartesian nodelabels>
 {
     "nodes": [
-        { "id": "A0", "x": 75, "y": 125, "base": true },
-        { "id": "A", "x": 100, "y": 175 },
-        { "id": "B0", "x": 300, "y": 125 }
+        { "id":"A0","x":204.8,"y":223.2,"base":true },
+        { "id":"A","x":242.8,"y":289.6 },
+        { "id":"B","x":226,"y":530 },
+        { "id":"B0","x":380.2,"y":477.2,"base":true }
     ],
     "constraints": [
-        {
-          "id": "a", "p1": "A0", "p2": "A",
-          "len": { "type": "const" },
-          "ori": { "type": "drive", "repeat": 3 }
-        }, {
-          "id": "b", "p1": "B0", "p2": "A",
-          "len": { "type": "const" }
-        }, {
-          "id": "c", "p1": "A0", "p2": "B0",
-          "ori": { "type": "const" }
-        }
+        { "id":"a","p1":"A0","p2":"A","len":{ "type":"const" },"ori":{ "type":"drive","func":"linear","Dt":5,"Dw":6.2832,"repeat":5 } },
+        { "id":"b","p1":"A","p2":"B","len":{ "type":"const" } },
+        { "id":"c","p1":"B0","p2":"B","len":{ "type":"const" } }
     ],
     "shapes": [
-        { "type": "fix", "p": "A0" },
-        { "type": "flt", "p": "B0" }
+        { "type":"img","uri":"./img/cranks.png","p":"A0","xoff":220,"yoff":-50,"w0":-1.5708,"wref":"a","scl":0.4 },
+        { "type":"img","uri":"./img/hebel.png","p":"B","xoff":200,"yoff":-100,"w0":-1.5708,"wref":"a","scl":0.2 }
     ]
 }
-```
+</mec-2>
 
-![first](img/shape_1.gif)
-
-<!-- TODO example with cool poly shapes. e.g. a dump truck -->

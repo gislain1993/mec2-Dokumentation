@@ -92,7 +92,17 @@ To get an idea of the implementation of nodes the following code suffices to dra
 }
 ```
 
-![first](img/nodes.gif)
+<mec-2 width="300" height="300" grid cartesian>
+{   
+	"nodes": [
+        { "id": "A0", "x": 75, "y": 100, "base": true },
+        { "id": "A", "x": 75, "y": 150 },
+        { "id": "B", "x": 275, "y": 220 },
+        { "id": "B0", "x": 275, "y": 100, "base": true },
+        { "id": "C", "x": 125, "y": 225 }
+    ]
+}
+</mec-2>
 
 
 ## Constraints
@@ -118,6 +128,25 @@ Without extra modules, the `type` can be set as `const` or `free`, limiting the 
 </br>
 
 Constraints are made available by importing the `mec2.constraints` module.
+<mec-2 width="300" height="300" grid cartesian>
+{
+"nodes": [
+        { "id": "A0", "x": 75, "y": 100, "base": true },
+        { "id": "A", "x": 75, "y": 150 },
+        { "id": "B", "x": 275, "y": 220 },
+        { "id": "B0", "x": 275, "y": 100, "base": true },
+        { "id": "C", "x": 125, "y": 225 }
+    ],
+    "constraints": [
+        { "id": "a", "p1": "A0", "p2": "A", "len": { "type":"const" } },
+        { "id": "b", "p1": "A", "p2": "B", "len": { "type":"const" } },
+        { "id": "c", "p1": "B0", "p2": "B", "len": { "type":"const" } },
+        { "id": "d", "p1": "B", "p2": "C","len": { "type":"const" },
+          "ori": { "ref": "b", "type": "const" } }
+    ]
+}
+</mec2>
+
 ```json
 {
     "nodes": [
@@ -136,4 +165,3 @@ Constraints are made available by importing the `mec2.constraints` module.
     ]
 }
 ```
-![first](img/constraints.gif)

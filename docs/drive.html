@@ -1,43 +1,23 @@
 <!doctype html>
-<html>
+<html class="theme-dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1,user-scalable=no">
-<meta name="description" content=" - microjam page">
-
+<meta name="description" content="mec2-drive">
+<meta name="date" content="Tue Jun 09 2020 02:00:00 GMT+0200 (Central European Summer Time)">
 <meta name="keywords" content="">
-<title></title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github-gist.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.css">
+<title>mec2-drive</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.18.1/styles/github-gist.min.css">
+
 <link rel="stylesheet" href="./theme/styles.css">
 </head>
 <body>
 <header>
-  <a href="./index.html" class="left">Mec 2</a>
+  <a href="./index.html" class="left">My Site</a>
   <a href="./about.html" class="right">About</a>
 </header>
 <main>
-    <nav>
-        <ul>
-    <li><a href="getting_started.html" data-href="getting_started.html">Getting started</a></li>
-    <li><a href="basic_modules.html" data-href="basic_modules.html">Index</a></li>
-    <li><a href="loads.html" data-href="loads.html">Loads</a></li>
-    <li><a href="drive.html" data-href="drive.html">Drives</a></li>
-    <li><a href="views.html" data-href="views.html">Views</a></li>
-    <li><a href="shapes.html" data-href="shapes.html">shapes</a></li>
-    <li><a href="mec2.html.md" data-href="mec2.html.md">mec2 in Html</a></li>
-    
-    </ul>
-    <hr>
-    <ul>
-    <li><a href="g2.ext.html" data-href="g2.ext.html">Extension: g2.ext</a></li>
-    <li><a href="g2.mec.html" data-href="g2.mec.html">Extension: g2.mec</a></li>
-    <li><a href="g2.chart.html" data-href="g2.chart.html">Extension: g2.chart</a></li>
-        </ul>
-    </nav>
-
-<h2 id="drives">Drives</h2>
+<h2 id="drives">Drives <a class="plnk" href="#drives">#</a></h2>
 <p>The <code>type</code> of a constraint describes the interactions of two nodes.
 Using only the <code>core</code> module the <code>type</code> can be set as <code>free</code> or <code>const</code> to allow or disallow motion respectively.
 <code>mec2.drive</code> allows this <code>type</code> to be set as <code>drive</code> as well.
@@ -54,7 +34,25 @@ A constraint of <code>type</code> drive has a determined motion, which allows li
 <li><code>args</code>: Arguments for sequential functions. Implemented in the second example.</li>
 </ul>
 <p>Using combinations of these properties a variety of motions can be described.</p>
-<h4 id="example">Example:</h4>
+<h4 id="example">Example: <a class="plnk" href="#example">#</a></h4>
+<mec-2 width="300" height="300" grid cartesian>
+{
+    "nodes": [
+        {
+            "id":"A0", "x": 150, "y": 120, "base": true
+        }, {
+            "id":"A", "x": 150, "y": 200
+        }
+    ],
+    "constraints": [
+        {
+            "id":"a","p1":"A0","p2":"A",
+            "len":{"type":"const"},
+            "ori":{"type":"drive","repeat":10,"Dt":3 }
+        }
+    ]
+}  
+</mec-2>
 <pre><code class="code-line language-json"><div>{
     <span class="hljs-attr">"nodes"</span>: [
         {
@@ -72,44 +70,8 @@ A constraint of <code>type</code> drive has a determined motion, which allows li
     ]
 }  
 </div></code></pre>
-<mec-2 width="300" height="300" grid cartesian>
-{
-    "nodes": [
-        {
-            "id":"A0", "x": 200, "y": 40, "base": true
-        }, {
-            "id":"A", "x": 200, "y": 140
-        }
-    ],
-    "constraints": [
-        {
-            "id":"a","p1":"A0","p2":"A",
-            "len":{"type":"const"},
-            "ori":{"type":"drive","repeat":10,"Dt":3 }
-        }
-    ]
-}  
-</mec-2>
-<p>Drives can be composed as a sequence (<code>'func':'seq'</code>) of normalized functions, being one of [<code>const</code>, <code>linear</code>, <code>quadratic</code>, <code>harmonic</code>, <code>sinoid</code>, <code>poly5</code>].<br>
-Every segment of a drive sequence must specify its function type <code>func</code>, its duration <code>dt</code> (always positive) and its value range <code>dz</code> (might be negative).</p>
-<pre><code class="code-line language-json"><div>{
-    <span class="hljs-attr">"nodes"</span>: [
-        {<span class="hljs-attr">"id"</span>:<span class="hljs-string">"A0"</span>,<span class="hljs-attr">"x"</span>:<span class="hljs-number">175</span>,<span class="hljs-attr">"y"</span>:<span class="hljs-number">125</span>,<span class="hljs-attr">"base"</span>:<span class="hljs-literal">true</span>},
-        {<span class="hljs-attr">"id"</span>:<span class="hljs-string">"A1"</span>,<span class="hljs-attr">"x"</span>:<span class="hljs-number">175</span>,<span class="hljs-attr">"y"</span>:<span class="hljs-number">225</span>}
-    ],
-    <span class="hljs-attr">"constraints"</span>: [
-        { <span class="hljs-attr">"id"</span>: <span class="hljs-string">"a"</span>, <span class="hljs-attr">"p1"</span>: <span class="hljs-string">"A0"</span>, <span class="hljs-attr">"p2"</span>: <span class="hljs-string">"A1"</span>,
-          <span class="hljs-attr">"len"</span>: { <span class="hljs-attr">"type"</span>: <span class="hljs-string">"const"</span> },
-          <span class="hljs-attr">"ori"</span>: { <span class="hljs-attr">"type"</span>: <span class="hljs-string">"drive"</span>, 
-          <span class="hljs-attr">"Dt"</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">"Dw"</span>: <span class="hljs-number">-3.14</span>, <span class="hljs-attr">"repeat"</span>:<span class="hljs-number">2</span>,
-          <span class="hljs-attr">"func"</span>: <span class="hljs-string">"seq"</span>, <span class="hljs-attr">"args"</span>: [
-            { <span class="hljs-attr">"func"</span>: <span class="hljs-string">"quadratic"</span>, <span class="hljs-attr">"dt"</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">"dz"</span>: <span class="hljs-number">1</span> },
-            { <span class="hljs-attr">"func"</span>: <span class="hljs-string">"const"</span>, <span class="hljs-attr">"dt"</span>: <span class="hljs-number">1</span> },
-            {<span class="hljs-attr">"func"</span>: <span class="hljs-string">"linear"</span>, <span class="hljs-attr">"dt"</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">"dz"</span>: <span class="hljs-number">-1</span> }]
-        }
-    }]
-}
-</div></code></pre>
+<h3 id="drive-sequence"><code> Drive Sequence</code> <a class="plnk" href="#drive-sequence">#</a></h3>
+<p>Drive functions can be composed as a sequence (<code>'func':'seq'</code>) of normalized functions, being one of <code>['const', 'linear', 'quadratic', 'harmonic', 'sinoid', 'poly5']</code> each. Every segment of a drive sequence must specify its function type <code>func</code>, its duration <code>dt</code> (always positive) and its value range <code>dz</code> (might be negative).</p>
 <mec-2 width="300" height="300" grid cartesian>
 {
     "nodes": [
@@ -133,24 +95,24 @@ Every segment of a drive sequence must specify its function type <code>func</cod
 } 
 </mec-2>
 <pre><code class="code-line language-json"><div>{
-    <span class="hljs-attr">"nodes"</span>:[
-        { <span class="hljs-attr">"id"</span>: <span class="hljs-string">"A0"</span>, <span class="hljs-attr">"x"</span>: <span class="hljs-number">100</span>, <span class="hljs-attr">"y"</span>: <span class="hljs-number">125</span>, <span class="hljs-attr">"base"</span>: <span class="hljs-literal">true</span> },
-        { <span class="hljs-attr">"id"</span>: <span class="hljs-string">"B"</span>, <span class="hljs-attr">"x"</span>: <span class="hljs-number">175</span>, <span class="hljs-attr">"y"</span>: <span class="hljs-number">125</span> },
-        { <span class="hljs-attr">"id"</span>: <span class="hljs-string">"B0"</span>, <span class="hljs-attr">"x"</span>: <span class="hljs-number">250</span>, <span class="hljs-attr">"y"</span>: <span class="hljs-number">125</span>,<span class="hljs-attr">"base"</span>: <span class="hljs-literal">true</span> },
-        { <span class="hljs-attr">"id"</span>: <span class="hljs-string">"A"</span>, <span class="hljs-attr">"x"</span>: <span class="hljs-number">175</span>, <span class="hljs-attr">"y"</span>: <span class="hljs-number">125</span> }
+    <span class="hljs-attr">"nodes"</span>: [
+        {<span class="hljs-attr">"id"</span>:<span class="hljs-string">"A0"</span>,<span class="hljs-attr">"x"</span>:<span class="hljs-number">175</span>,<span class="hljs-attr">"y"</span>:<span class="hljs-number">125</span>,<span class="hljs-attr">"base"</span>:<span class="hljs-literal">true</span>},
+        {<span class="hljs-attr">"id"</span>:<span class="hljs-string">"A1"</span>,<span class="hljs-attr">"x"</span>:<span class="hljs-number">175</span>,<span class="hljs-attr">"y"</span>:<span class="hljs-number">225</span>}
     ],
-    <span class="hljs-attr">"constraints"</span>:[
-        { <span class="hljs-attr">"id"</span>: <span class="hljs-string">"b"</span>, <span class="hljs-attr">"p1"</span>: <span class="hljs-string">"B0"</span>, <span class="hljs-attr">"p2"</span>: <span class="hljs-string">"A"</span>,
+    <span class="hljs-attr">"constraints"</span>: [
+        { <span class="hljs-attr">"id"</span>: <span class="hljs-string">"a"</span>, <span class="hljs-attr">"p1"</span>: <span class="hljs-string">"A0"</span>, <span class="hljs-attr">"p2"</span>: <span class="hljs-string">"A1"</span>,
           <span class="hljs-attr">"len"</span>: { <span class="hljs-attr">"type"</span>: <span class="hljs-string">"const"</span> },
-          <span class="hljs-attr">"ori"</span>: { <span class="hljs-attr">"type"</span>: <span class="hljs-string">"drive"</span>, <span class="hljs-attr">"repeat"</span>:<span class="hljs-number">3</span> }
-        },
-        { <span class="hljs-attr">"id"</span>: <span class="hljs-string">"c"</span>, <span class="hljs-attr">"p1"</span>: <span class="hljs-string">"A0"</span>, <span class="hljs-attr">"p2"</span>: <span class="hljs-string">"B"</span>,
-          <span class="hljs-attr">"len"</span>: {<span class="hljs-attr">"type"</span>: <span class="hljs-string">"const"</span> },
-          <span class="hljs-attr">"ori"</span>: { <span class="hljs-attr">"type"</span>: <span class="hljs-string">"const"</span>, <span class="hljs-attr">"ref"</span>:<span class="hljs-string">"b"</span>}
+          <span class="hljs-attr">"ori"</span>: { <span class="hljs-attr">"type"</span>: <span class="hljs-string">"drive"</span>, 
+          <span class="hljs-attr">"Dt"</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">"Dw"</span>: <span class="hljs-number">-3.14</span>, <span class="hljs-attr">"repeat"</span>:<span class="hljs-number">2</span>,
+          <span class="hljs-attr">"func"</span>: <span class="hljs-string">"seq"</span>, <span class="hljs-attr">"args"</span>: [
+            { <span class="hljs-attr">"func"</span>: <span class="hljs-string">"quadratic"</span>, <span class="hljs-attr">"dt"</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">"dz"</span>: <span class="hljs-number">1</span> },
+            { <span class="hljs-attr">"func"</span>: <span class="hljs-string">"const"</span>, <span class="hljs-attr">"dt"</span>: <span class="hljs-number">1</span> },
+            {<span class="hljs-attr">"func"</span>: <span class="hljs-string">"linear"</span>, <span class="hljs-attr">"dt"</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">"dz"</span>: <span class="hljs-number">-1</span> }]
         }
-    ]
+    }]
 }
 </div></code></pre>
+<h3 id="drive-reference"><code> Drive reference</code> <a class="plnk" href="#drive-reference">#</a></h3>
 <mec-2 width="300" height="300" grid cartesian>
 {
     "nodes":[
@@ -171,13 +133,31 @@ Every segment of a drive sequence must specify its function type <code>func</cod
     ]
 }
 </mec-2>
-<script src="bin/g2.js"></script>
-<script src="bin/g2.selector.js"></script>
-<script src="bin/canvasInteractor.js"></script>
-<script src="bin/mec2.min.js"></script>
-<script src="bin/mec.htmlelement.js"></script>
+<pre><code class="code-line language-json"><div>{
+    <span class="hljs-attr">"nodes"</span>:[
+        { <span class="hljs-attr">"id"</span>: <span class="hljs-string">"A0"</span>, <span class="hljs-attr">"x"</span>: <span class="hljs-number">100</span>, <span class="hljs-attr">"y"</span>: <span class="hljs-number">125</span>, <span class="hljs-attr">"base"</span>: <span class="hljs-literal">true</span> },
+        { <span class="hljs-attr">"id"</span>: <span class="hljs-string">"B"</span>, <span class="hljs-attr">"x"</span>: <span class="hljs-number">175</span>, <span class="hljs-attr">"y"</span>: <span class="hljs-number">125</span> },
+        { <span class="hljs-attr">"id"</span>: <span class="hljs-string">"B0"</span>, <span class="hljs-attr">"x"</span>: <span class="hljs-number">250</span>, <span class="hljs-attr">"y"</span>: <span class="hljs-number">125</span>,<span class="hljs-attr">"base"</span>: <span class="hljs-literal">true</span> },
+        { <span class="hljs-attr">"id"</span>: <span class="hljs-string">"A"</span>, <span class="hljs-attr">"x"</span>: <span class="hljs-number">175</span>, <span class="hljs-attr">"y"</span>: <span class="hljs-number">125</span> }
+    ],
+    <span class="hljs-attr">"constraints"</span>:[
+        { <span class="hljs-attr">"id"</span>: <span class="hljs-string">"b"</span>, <span class="hljs-attr">"p1"</span>: <span class="hljs-string">"B0"</span>, <span class="hljs-attr">"p2"</span>: <span class="hljs-string">"A"</span>,
+          <span class="hljs-attr">"len"</span>: { <span class="hljs-attr">"type"</span>: <span class="hljs-string">"const"</span> },
+          <span class="hljs-attr">"ori"</span>: { <span class="hljs-attr">"type"</span>: <span class="hljs-string">"drive"</span>, <span class="hljs-attr">"repeat"</span>:<span class="hljs-number">3</span> }
+        },
+        { <span class="hljs-attr">"id"</span>: <span class="hljs-string">"c"</span>, <span class="hljs-attr">"p1"</span>: <span class="hljs-string">"A0"</span>, <span class="hljs-attr">"p2"</span>: <span class="hljs-string">"B"</span>,
+          <span class="hljs-attr">"len"</span>: {<span class="hljs-attr">"type"</span>: <span class="hljs-string">"const"</span> },
+          <span class="hljs-attr">"ori"</span>: { <span class="hljs-attr">"type"</span>: <span class="hljs-string">"const"</span>, <span class="hljs-attr">"ref"</span>:<span class="hljs-string">"b"</span>}
+        }
+    ]
+}
+</div></code></pre>
 
 </main>
-<footer>&copy; Mec 2</footer>
+<footer>
+  <span class="left">&copy; My Site</span>
+  <span class="center">powered by &mu;JAM &amp; VSCode &mdash; hosted by GitHub</span>
+  <span class="right" onclick="document.documentElement.className = document.documentElement.className === 'theme-dark' ? 'theme-light' : 'theme-dark';">&#9788;</span>
+</footer>
 </body>
 </html>

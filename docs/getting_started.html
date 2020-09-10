@@ -53,14 +53,10 @@ Models are described using the human and machine readable <code>JSON</code> form
             ]
         }
  </mec-2>
-        <script src="bin/g2.js"></script>
-        <script src="bin/g2.selector.js"></script>
-        <script src="bin/canvasInteractor.js"></script>
-        <script src="bin/mec2.min.js"></script>
-        <script src="bin/mec.htmlelement.js"></script>
 <p><img src="img/Kurbelschwinge.png" alt="img" class="loading" id="image-hash-280f505d3ac90bd686dfaa5385d635d8537d36bdde781f14f96782891675bb3f"></p>
 <mec-2 width="401" height="301" grid cartesian x0="100" y0="125">
-{   "nodes":[
+{   
+"nodes":[
     {"id":"A0","x":0,"y":0,"base":true},
     {"id":"A", "x":0,"y":50},
     {"id":"B", "x":170,"y":120},
@@ -73,11 +69,6 @@ Models are described using the human and machine readable <code>JSON</code> form
 ]
 }
 </mec-2>
-<script src="mec2/bin/canvasInteractor.js"></script>
-<script src="mec2/bin/g2.js"></script>
-<script src="mec2/bin/g2.selector.js"></script>
-<script src="mec2/mec2.js"></script>
-<script src="mec2/bin/mec.htmlelement.js"></script>
 <h3 id="which-knowlge-are-important-to-start-with-mec2">Which Knowlge are important to start with mec2? <a class="plnk" href="#which-knowlge-are-important-to-start-with-mec2">#</a></h3>
 <p>A <code>mec2</code> model can consist of up to 9 different modules.</p>
 <!-- TODO: Make all of these elements links -->
@@ -126,7 +117,7 @@ The <code>id</code> is, hence the name, an identifier for later processing.</p>
     { <span class="hljs-attr">"id"</span>: <span class="hljs-string">"B"</span>, <span class="hljs-attr">"x"</span>: <span class="hljs-number">275</span>, <span class="hljs-attr">"y"</span>: <span class="hljs-number">220</span> },
     { <span class="hljs-attr">"id"</span>: <span class="hljs-string">"B0"</span>, <span class="hljs-attr">"x"</span>: <span class="hljs-number">275</span>, <span class="hljs-attr">"y"</span>: <span class="hljs-number">100</span>, <span class="hljs-attr">"base"</span>: <span class="hljs-literal">true</span> },
     { <span class="hljs-attr">"id"</span>: <span class="hljs-string">"C"</span>, <span class="hljs-attr">"x"</span>: <span class="hljs-number">125</span>, <span class="hljs-attr">"y"</span>: <span class="hljs-number">225</span> }
-],
+]
 </div></code></pre>
 <p>The <code>base</code> flag is used to determine if the <code>node</code> is fixed (treating the particle as if it has infinite mass).`</p>
 <h3 id="constraints">Constraints <a class="plnk" href="#constraints">#</a></h3>
@@ -152,17 +143,6 @@ For this the <code>mec.drive</code> module has to be imported (incidentally done
 <p>By setting <code>nodes</code> and <code>constraints</code> a fully working mechanism is defined and can already be analyzed.</p>
 <h3 id="views">Views <a class="plnk" href="#views">#</a></h3>
 <p>To support the user with some analysis options <code>views</code> can be used, brought by the <code>mec.views</code> module.</p>
-<pre><code class="code-line language-JSON"><div><span class="hljs-string">"views"</span>: [
-    { <span class="hljs-attr">"show"</span>: <span class="hljs-string">"pos"</span>, <span class="hljs-attr">"of"</span>: <span class="hljs-string">"C"</span>, <span class="hljs-attr">"as"</span>: <span class="hljs-string">"trace"</span>, <span class="hljs-attr">"Dt"</span>:<span class="hljs-number">2.1</span>, <span class="hljs-attr">"mode"</span>:<span class="hljs-string">"preview"</span>, <span class="hljs-attr">"fill"</span>:<span class="hljs-string">"orange"</span> },
-    { <span class="hljs-attr">"show"</span>: <span class="hljs-string">"vel"</span>, <span class="hljs-attr">"of"</span>: <span class="hljs-string">"C"</span>, <span class="hljs-attr">"as"</span>: <span class="hljs-string">"vector"</span> },
-    { <span class="hljs-attr">"as"</span>: <span class="hljs-string">"chart"</span>, <span class="hljs-attr">"x"</span>: <span class="hljs-number">350</span>, <span class="hljs-attr">"y"</span>: <span class="hljs-number">150</span>, <span class="hljs-attr">"Dt"</span>: <span class="hljs-number">1.9</span>, <span class="hljs-attr">"t0"</span>: <span class="hljs-number">0.1</span>,
-    <span class="hljs-attr">"xaxis"</span>: {<span class="hljs-attr">"show"</span>: <span class="hljs-string">"w"</span>, <span class="hljs-attr">"of"</span>: <span class="hljs-string">"a"</span>},
-    <span class="hljs-attr">"yaxis"</span>: [
-        {<span class="hljs-attr">"show"</span>: <span class="hljs-string">"wt"</span>, <span class="hljs-attr">"of"</span>: <span class="hljs-string">"d"</span>},
-        {<span class="hljs-attr">"show"</span>: <span class="hljs-string">"wt"</span>, <span class="hljs-attr">"of"</span>: <span class="hljs-string">"c"</span>}
-    ],
-}]
-</div></code></pre>
 <p><code>views</code> offers different options to choose from to make features visible.
 These different options share a lot of properties, which are:</p>
 <ul>
@@ -172,7 +152,51 @@ These different options share a lot of properties, which are:</p>
 <li><code>t0</code>: defines when to start the recording (referring to the model timer).</li>
 <li><code>Dt</code>: defines the duration of the recording after <code>t0</code>.</li>
 </ul>
-<p>To further read about the different <code>views</code> and possible properties to choose from please should have a look to the <a href="../wiki/views">respective wiki</a>.</p>
+<h4 id="example">Example <a class="plnk" href="#example">#</a></h4>
+<mec-2 width="300" height="300" grid cartesian>
+{
+	"nodes":[
+	    { "id": "A0", "x": 100, "y": 50, "base": true },
+		{ "id": "B0", "x": 200, "y": 50,"base": true },
+		{ "id": "B", "x": 125, "y": 125 },
+		{ "id": "A", "x": 175, "y": 125 }
+	    ],		
+	"constraints":[
+	    { "id": "a", "p1": "A0", "p2": "A", "len": { "type": "const" }},
+		{ "id": "b", "p1": "A", "p2": "B", "len": { "type": "const" },
+		"ori": { "type": "drive", "func": "linear", "Dt": 5, "repeat":2 }},
+		{ "id": "c", "p1": "B0", "p2": "B", "len": { "type": "const" }}
+			],
+	"views": [
+        		{ "show": "pole", "of": "b", "as": "trace",
+          		"mode": "static", "t0": 0.02, "Dt": 9.98, "fill": "#90ee9088" },
+        		{ "show": "pole", "of": "b", "ref": "b", "as": "trace",
+          		"mode": "static", "t0": 0.02, "Dt": 9.98, "fill": "#eeeeee88" }
+    		]
+		}
+</mec-2>
+<pre><code class="code-line language-html"><div>{
+    "nodes": [
+        { "id": "A0", "x": 100, "y": 50, "base": true, "idloc": "s" },
+        { "id": "B0", "x": 200, "y": 50, "base": true, "idloc": "s" },
+        { "id": "A", "x": 175, "y": 150, "idloc": "ne" },
+        { "id": "B", "x": 125, "y": 150, "idloc": "nw" }
+    ],
+    "constraints": [
+        { "id": "a", "p1": "A0", "p2": "A", "len": { "type": "const" } },
+        { "id": "b", "p1": "A", "p2": "B", "len": { "type": "const" },
+          "ori": { "type": "drive", "func": "linear", "Dt": 5, "repeat": 2 } },
+        { "id": "c", "p1": "B0", "p2": "B", "len": { "type": "const" } }
+    ],
+    "views": [
+        { "show": "pole", "of": "b", "as": "trace",
+          "mode": "static", "t0": 0.02, "Dt": 9.98, "fill": "#90ee9088" },
+        { "show": "pole", "of": "b", "ref": "b", "as": "trace",
+          "mode": "static", "t0": 0.02, "Dt": 9.98, "fill": "#eeeeee88" }
+    ]
+}
+
+</div></code></pre>
 <h3 id="model-rendering">Model rendering <a class="plnk" href="#model-rendering">#</a></h3>
 <p>Please note that the following steps are automatically executed if the model is implemented using the <code>&lt;mec-2&gt;</code> element.</p>
 <p>At first the functionality offered by the <code>mec</code> object has to be applied to our <code>model</code> object, thus extending it with all the functionality it needs.
@@ -187,7 +211,7 @@ model.draw(g);
     requestAnimationFrame(render)
 })();
 </div></code></pre>
-<p><code>model.draw(g)</code> applies the model to a <code>g2</code> command queue which is then rendered onto the canvas in the defined context at the top of the code.</p>
+<p><code>model.draw(g)</code> applies the model to a <code>g2</code> command queue which is then rendered into the canvas in the defined context at the top of the code.</p>
 <p>Inside the <code>render</code> queue the <code>model.timer</code> is advanced one sixtieth of a second each iteration by calling <code>model.tick(1/60)</code>.
 Assuming a 60hz Monitor is used (or at least requestAnimationFrame operates in 60hz) this results in a convenient mapping to real time.</p>
 <p>If you want to know more about <code>g2</code> feel free to check out <a href="github.com/goessner/g2">g2's GitHub page</a>.</p>

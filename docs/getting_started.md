@@ -51,16 +51,13 @@ to draw and simulate Model of mechanismus like these hier.
             ]
         }
  </mec-2>
-        <script src="bin/g2.js"></script>
-        <script src="bin/g2.selector.js"></script>
-        <script src="bin/canvasInteractor.js"></script>
-        <script src="bin/mec2.min.js"></script>
-        <script src="bin/mec.htmlelement.js"></script>
+       
 
 ![img](img/Kurbelschwinge.png)
 
 <mec-2 width="401" height="301" grid cartesian x0="100" y0="125">
-{   "nodes":[
+{   
+"nodes":[
     {"id":"A0","x":0,"y":0,"base":true},
     {"id":"A", "x":0,"y":50},
     {"id":"B", "x":170,"y":120},
@@ -73,11 +70,7 @@ to draw and simulate Model of mechanismus like these hier.
 ]
 }
 </mec-2>
-<script src="mec2/bin/canvasInteractor.js"></script>
-<script src="mec2/bin/g2.js"></script>
-<script src="mec2/bin/g2.selector.js"></script>
-<script src="mec2/mec2.js"></script>
-<script src="mec2/bin/mec.htmlelement.js"></script>
+
 
 ### Which Knowlge are important to start with mec2?
 
@@ -131,6 +124,7 @@ modules. In this very case of `nodes`, `constraints` and `views`.
 They do not have any boundaries on their own, but properties which determine their state.
 As you can see they are described solely by their coordinates.
 The `id` is, hence the name, an identifier for later processing.
+
 ```json
 "nodes": [
     { "id": "A0", "x": 75, "y": 100, "base": true },
@@ -138,7 +132,7 @@ The `id` is, hence the name, an identifier for later processing.
     { "id": "B", "x": 275, "y": 220 },
     { "id": "B0", "x": 275, "y": 100, "base": true },
     { "id": "C", "x": 125, "y": 225 }
-],
+]
 ```
 The `base` flag is used to determine if the `node` is fixed (treating the particle as if it has infinite mass).`
 
@@ -176,19 +170,6 @@ By setting `nodes` and `constraints` a fully working mechanism is defined and ca
 
 To support the user with some analysis options `views` can be used, brought by the `mec.views` module.
 
-```JSON
-"views": [
-    { "show": "pos", "of": "C", "as": "trace", "Dt":2.1, "mode":"preview", "fill":"orange" },
-    { "show": "vel", "of": "C", "as": "vector" },
-    { "as": "chart", "x": 350, "y": 150, "Dt": 1.9, "t0": 0.1,
-    "xaxis": {"show": "w", "of": "a"},
-    "yaxis": [
-        {"show": "wt", "of": "d"},
-        {"show": "wt", "of": "c"}
-    ],
-}]
-```
-
 `views` offers different options to choose from to make features visible.
 These different options share a lot of properties, which are:
 - `show`: which is a mapping to the different properties which can be shown here. (position, velocity, acceleration, momentum, force...)
@@ -197,7 +178,54 @@ These different options share a lot of properties, which are:
  - `t0`: defines when to start the recording (referring to the model timer).
  - `Dt`: defines the duration of the recording after `t0`.
 
-To further read about the different `views` and possible properties to choose from please should have a look to the [respective wiki](../wiki/views).
+#### Example
+<mec-2 width="300" height="300" grid cartesian>
+{
+	"nodes":[
+	    { "id": "A0", "x": 100, "y": 50, "base": true },
+		{ "id": "B0", "x": 200, "y": 50,"base": true },
+		{ "id": "B", "x": 125, "y": 125 },
+		{ "id": "A", "x": 175, "y": 125 }
+	    ],		
+	"constraints":[
+	    { "id": "a", "p1": "A0", "p2": "A", "len": { "type": "const" }},
+		{ "id": "b", "p1": "A", "p2": "B", "len": { "type": "const" },
+		"ori": { "type": "drive", "func": "linear", "Dt": 5, "repeat":2 }},
+		{ "id": "c", "p1": "B0", "p2": "B", "len": { "type": "const" }}
+			],
+	"views": [
+        		{ "show": "pole", "of": "b", "as": "trace",
+          		"mode": "static", "t0": 0.02, "Dt": 9.98, "fill": "#90ee9088" },
+        		{ "show": "pole", "of": "b", "ref": "b", "as": "trace",
+          		"mode": "static", "t0": 0.02, "Dt": 9.98, "fill": "#eeeeee88" }
+    		]
+		}
+</mec-2>
+
+```html
+{
+    "nodes": [
+        { "id": "A0", "x": 100, "y": 50, "base": true, "idloc": "s" },
+        { "id": "B0", "x": 200, "y": 50, "base": true, "idloc": "s" },
+        { "id": "A", "x": 175, "y": 150, "idloc": "ne" },
+        { "id": "B", "x": 125, "y": 150, "idloc": "nw" }
+    ],
+    "constraints": [
+        { "id": "a", "p1": "A0", "p2": "A", "len": { "type": "const" } },
+        { "id": "b", "p1": "A", "p2": "B", "len": { "type": "const" },
+          "ori": { "type": "drive", "func": "linear", "Dt": 5, "repeat": 2 } },
+        { "id": "c", "p1": "B0", "p2": "B", "len": { "type": "const" } }
+    ],
+    "views": [
+        { "show": "pole", "of": "b", "as": "trace",
+          "mode": "static", "t0": 0.02, "Dt": 9.98, "fill": "#90ee9088" },
+        { "show": "pole", "of": "b", "ref": "b", "as": "trace",
+          "mode": "static", "t0": 0.02, "Dt": 9.98, "fill": "#eeeeee88" }
+    ]
+}
+
+```
+
 
 ### Model rendering
 
@@ -219,7 +247,7 @@ model.draw(g);
 })();
 ```
 
-`model.draw(g)` applies the model to a `g2` command queue which is then rendered onto the canvas in the defined context at the top of the code.
+`model.draw(g)` applies the model to a `g2` command queue which is then rendered into the canvas in the defined context at the top of the code.
 
 Inside the `render` queue the `model.timer` is advanced one sixtieth of a second each iteration by calling `model.tick(1/60)`.
 Assuming a 60hz Monitor is used (or at least requestAnimationFrame operates in 60hz) this results in a convenient mapping to real time.

@@ -1,24 +1,23 @@
 <!doctype html>
-<html>
+<html class="theme-dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1,user-scalable=no">
-<meta name="description" content=" - microjam page">
-
+<meta name="description" content="mec2-views">
+<meta name="date" content="Tue Jun 09 2020 02:00:00 GMT+0200 (Central European Summer Time)">
 <meta name="keywords" content="">
-<title></title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github-gist.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.css">
+<title>mec2-views</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.18.1/styles/github-gist.min.css">
+
 <link rel="stylesheet" href="./theme/styles.css">
 </head>
 <body>
 <header>
-  <a href="./index.html" class="left">Mec 2</a>
+  <a href="./index.html" class="left">My Site</a>
   <a href="./about.html" class="right">About</a>
 </header>
 <main>
-<h2 id="views">Views</h2>
+<h2 id="views">Views <a class="plnk" href="#views">#</a></h2>
 <p>Views can be used to make different properties of the model or single elements of the model visible.</p>
 <p>They are implemented, similar to <code>nodes</code> and <code>constraints</code>, by creating a <code>views</code> array and describing single <code>views</code> as objects.</p>
 <p>At the moment there are five different views available:</p>
@@ -37,7 +36,39 @@
 <li><code>t0</code> - An offset to the <code>model.timer</code> for the <code>view</code>.</li>
 <li><code>Dt</code> - Time interval of the view to be active.</li>
 </ul>
-<h3 id="example">Example</h3>
+<h3 id="example-1">Example 1 <a class="plnk" href="#example-1">#</a></h3>
+<mec-2 width="600" height="350" x0="0" y0="0" grid cartesian nodelabels>
+{
+    "nodes": [
+        { "id": "A0", "x": 75, "y": 50, "base": true },
+        { "id": "A", "x": 75, "y": 100 },
+        { "id": "B", "x": 275, "y": 170 },
+        { "id": "B0", "x": 275, "y": 50, "base": true },
+        { "id": "C", "x": 125, "y": 175 }
+    ],
+    "constraints": [
+        {
+            "id": "a", "p1": "A0", "p2": "A", "len": { "type":"const" },
+            "ori": { "type": "drive", "Dt": 2, "Dw": 6.28 }
+        }, {
+            "id": "b", "p1": "A", "p2": "B", "len": { "type":"const" }
+        }, {
+            "id": "c", "p1": "B0", "p2": "B", "len": { "type":"const" }
+        }, {
+            "id": "d", "p1": "B", "p2": "C", "len": { "type":"const" },
+            "ori": { "ref": "b", "type": "const" }
+        }
+    ],
+    "views": [
+        {
+            "show": "pos", "of": "C", "as": "trace", "Dt":2.1,
+            "mode":"preview", "fill":"orange"
+        }, {
+            "show": "vel", "of": "C", "as": "vector"
+        }
+    ]
+}
+</mec-2>
 <pre><code class="code-line language-json"><div>{
     <span class="hljs-attr">"nodes"</span>: [
         { <span class="hljs-attr">"id"</span>: <span class="hljs-string">"A0"</span>, <span class="hljs-attr">"x"</span>: <span class="hljs-number">75</span>, <span class="hljs-attr">"y"</span>: <span class="hljs-number">50</span>, <span class="hljs-attr">"base"</span>: <span class="hljs-literal">true</span> },
@@ -72,38 +103,26 @@
     ]
 }
 </div></code></pre>
-<mec-2 width="500" height="300" grid cartesian>
+<h3 id="example-2">Example 2 <a class="plnk" href="#example-2">#</a></h3>
+<mec-2 width="600" height="350" x0="0" y0="0" grid cartesian nodelabels>
 {
     "nodes": [
-        { "id": "A0", "x": 75, "y": 50, "base": true },
-        { "id": "A", "x": 75, "y": 100 },
-        { "id": "B", "x": 275, "y": 170 },
-        { "id": "B0", "x": 275, "y": 50, "base": true },
-        { "id": "C", "x": 125, "y": 175 }
+        { "id": "A0", "x": 100, "y": 50, "base": true, "idloc": "s" },
+        { "id": "B0", "x": 200, "y": 50, "base": true, "idloc": "s" },
+        { "id": "A", "x": 175, "y": 150, "idloc": "ne" },
+        { "id": "B", "x": 125, "y": 150, "idloc": "nw" }
     ],
     "constraints": [
-        {
-            "id": "a", "p1": "A0", "p2": "A", "len": { "type":"const" },
-            "ori": { "type": "drive", "Dt": 2, "Dw": 6.28 }
-        }, {
-            "id": "b", "p1": "A", "p2": "B", "len": { "type":"const" }
-        }, {
-            "id": "c", "p1": "B0", "p2": "B", "len": { "type":"const" }
-        }, {
-            "id": "d", "p1": "B", "p2": "C", "len": { "type":"const" },
-            "ori": { "ref": "b", "type": "const" }
-        }
+        { "id": "a", "p1": "A0", "p2": "A", "len": { "type": "const" } },
+        { "id": "b", "p1": "A", "p2": "B", "len": { "type": "const" },
+          "ori": { "type": "drive", "func": "linear", "Dt": 5, "repeat": 2 } },
+        { "id": "c", "p1": "B0", "p2": "B", "len": { "type": "const" } }
     ],
     "views": [
-        {
-            "show": "pos", "of": "C", "as": "trace", "Dt":2.1,
-            "mode":"preview", "fill":"orange"
-        }, {
-            "show": "vel", "of": "C", "as": "vector"
-        }, {
-            "as": "chart", "x": 340, "y": 75, "Dt": 1.9,
-            "show": "wt", "of": "b"
-        }
+        { "show": "pole", "of": "b", "as": "trace",
+          "mode": "static", "t0": 0.02, "Dt": 9.98, "fill": "#90ee9088" },
+        { "show": "pole", "of": "b", "ref": "b", "as": "trace",
+          "mode": "static", "t0": 0.02, "Dt": 9.98, "fill": "#eeeeee88" }
     ]
 }
 </mec-2>
@@ -128,26 +147,35 @@
     ]
 }
 </div></code></pre>
-<mec-2 width="300" height="300" grid cartesian>
+<h3 id="example-3">Example 3 <a class="plnk" href="#example-3">#</a></h3>
+<mec-2 width="600" height="350" x0="0" y0="0" grid cartesian nodelabels>
 {
     "nodes": [
-        { "id": "A0", "x": 100, "y": 50, "base": true, "idloc": "s" },
-        { "id": "B0", "x": 200, "y": 50, "base": true, "idloc": "s" },
-        { "id": "A", "x": 175, "y": 150, "idloc": "ne" },
-        { "id": "B", "x": 125, "y": 150, "idloc": "nw" }
+        { "id": "A0", "x": 50, "y": 200, "base" :true },
+        { "id": "A", "x": 150, "y": 200 },
+        { "id": "B0", "x": 150, "y": 140, "base": true },
+        { "id": "B", "x": 200, "y": 140 }
     ],
     "constraints": [
-        { "id": "a", "p1": "A0", "p2": "A", "len": { "type": "const" } },
-        { "id": "b", "p1": "A", "p2": "B", "len": { "type": "const" },
-          "ori": { "type": "drive", "func": "linear", "Dt": 5, "repeat": 2 } },
-        { "id": "c", "p1": "B0", "p2": "B", "len": { "type": "const" } }
+        {
+            "id": "a", "p1": "A0", "p2": "A", "len": { "type": "const" },
+            "ori": { "type": "drive", "func": "seq", "Dt":5, "Dw":0.5326,
+                "repeat": 2, "args": [
+                    { "func": "quadratic", "dt": 3, "dz": 2},
+                    { "func": "const", "dt": 2 },
+                    { "func": "quadratic", "dt": 3, "dz": -2}
+                ]
+            }
+        },
+        {
+            "id": "b", "p1": "B0", "p2": "B", "len": { "type": "const" },
+            "ori": { "type": "drive", "Dt": 5, "repeat": 2 }
+        }
     ],
-    "views": [
-        { "show": "pole", "of": "b", "as": "trace",
-          "mode": "static", "t0": 0.02, "Dt": 9.98, "fill": "#90ee9088" },
-        { "show": "pole", "of": "b", "ref": "b", "as": "trace",
-          "mode": "static", "t0": 0.02, "Dt": 9.98, "fill": "#eeeeee88" }
-    ]
+    "views": [{
+        "show": "pos", "of": "A", "as": "trace", "ref": "b",
+        "mode": "preview", "Dt": 5, "fill": "#ddd"
+    }]
 }
 </mec-2>
 <pre><code class="code-line language-json"><div>{
@@ -179,43 +207,12 @@
     }]
 }
 </div></code></pre>
-<mec-2 width="300" height="300" grid cartesian>
-{
-    "nodes": [
-        { "id": "A0", "x": 50, "y": 200, "base" :true },
-        { "id": "A", "x": 150, "y": 200 },
-        { "id": "B0", "x": 150, "y": 140, "base": true },
-        { "id": "B", "x": 200, "y": 140 }
-    ],
-    "constraints": [
-        {
-            "id": "a", "p1": "A0", "p2": "A", "len": { "type": "const" },
-            "ori": { "type": "drive", "func": "seq", "Dt":5, "Dw":0.5326,
-                "repeat": 2, "args": [
-                    { "func": "quadratic", "dt": 3, "dz": 2},
-                    { "func": "const", "dt": 2 },
-                    { "func": "quadratic", "dt": 3, "dz": -2}
-                ]
-            }
-        },
-        {
-            "id": "b", "p1": "B0", "p2": "B", "len": { "type": "const" },
-            "ori": { "type": "drive", "Dt": 5, "repeat": 2 }
-        }
-    ],
-    "views": [{
-        "show": "pos", "of": "A", "as": "trace", "ref": "b",
-        "mode": "preview", "Dt": 5, "fill": "#ddd"
-    }]
-}
-</mec-2>
-<script src="bin/g2.js"></script>
-<script src="bin/g2.selector.js"></script>
-<script src="bin/canvasInteractor.js"></script>
-<script src="bin/mec2.min.js"></script>
-<script src="bin/mec.htmlelement.js"></script>
 
 </main>
-<footer>&copy; Mec 2</footer>
+<footer>
+  <span class="left">&copy; My Site</span>
+  <span class="center">powered by &mu;JAM &amp; VSCode &mdash; hosted by GitHub</span>
+  <span class="right" onclick="document.documentElement.className = document.documentElement.className === 'theme-dark' ? 'theme-light' : 'theme-dark';">&#9788;</span>
+</footer>
 </body>
 </html>

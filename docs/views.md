@@ -28,7 +28,39 @@ Each of these views is defined by the following properties:
 - `t0` - An offset to the `model.timer` for the `view`.
 - `Dt` - Time interval of the view to be active.
 
-### Example
+### Example 1
+<mec-2 width="600" height="350" x0="0" y0="0" grid cartesian nodelabels>
+{
+    "nodes": [
+        { "id": "A0", "x": 75, "y": 50, "base": true },
+        { "id": "A", "x": 75, "y": 100 },
+        { "id": "B", "x": 275, "y": 170 },
+        { "id": "B0", "x": 275, "y": 50, "base": true },
+        { "id": "C", "x": 125, "y": 175 }
+    ],
+    "constraints": [
+        {
+            "id": "a", "p1": "A0", "p2": "A", "len": { "type":"const" },
+            "ori": { "type": "drive", "Dt": 2, "Dw": 6.28 }
+        }, {
+            "id": "b", "p1": "A", "p2": "B", "len": { "type":"const" }
+        }, {
+            "id": "c", "p1": "B0", "p2": "B", "len": { "type":"const" }
+        }, {
+            "id": "d", "p1": "B", "p2": "C", "len": { "type":"const" },
+            "ori": { "ref": "b", "type": "const" }
+        }
+    ],
+    "views": [
+        {
+            "show": "pos", "of": "C", "as": "trace", "Dt":2.1,
+            "mode":"preview", "fill":"orange"
+        }, {
+            "show": "vel", "of": "C", "as": "vector"
+        }
+    ]
+}
+</mec-2>
 
 ```json
 {
@@ -65,8 +97,29 @@ Each of these views is defined by the following properties:
     ]
 }
 ```
-
-![view](img/view_1.gif)
+### Example 2
+<mec-2 width="600" height="350" x0="0" y0="0" grid cartesian nodelabels>
+{
+    "nodes": [
+        { "id": "A0", "x": 100, "y": 50, "base": true, "idloc": "s" },
+        { "id": "B0", "x": 200, "y": 50, "base": true, "idloc": "s" },
+        { "id": "A", "x": 175, "y": 150, "idloc": "ne" },
+        { "id": "B", "x": 125, "y": 150, "idloc": "nw" }
+    ],
+    "constraints": [
+        { "id": "a", "p1": "A0", "p2": "A", "len": { "type": "const" } },
+        { "id": "b", "p1": "A", "p2": "B", "len": { "type": "const" },
+          "ori": { "type": "drive", "func": "linear", "Dt": 5, "repeat": 2 } },
+        { "id": "c", "p1": "B0", "p2": "B", "len": { "type": "const" } }
+    ],
+    "views": [
+        { "show": "pole", "of": "b", "as": "trace",
+          "mode": "static", "t0": 0.02, "Dt": 9.98, "fill": "#90ee9088" },
+        { "show": "pole", "of": "b", "ref": "b", "as": "trace",
+          "mode": "static", "t0": 0.02, "Dt": 9.98, "fill": "#eeeeee88" }
+    ]
+}
+</mec-2>
 
 ```json
 {
@@ -90,8 +143,38 @@ Each of these views is defined by the following properties:
     ]
 }
 ```
+### Example 3
+<mec-2 width="600" height="350" x0="0" y0="0" grid cartesian nodelabels>
+{
+    "nodes": [
+        { "id": "A0", "x": 50, "y": 200, "base" :true },
+        { "id": "A", "x": 150, "y": 200 },
+        { "id": "B0", "x": 150, "y": 140, "base": true },
+        { "id": "B", "x": 200, "y": 140 }
+    ],
+    "constraints": [
+        {
+            "id": "a", "p1": "A0", "p2": "A", "len": { "type": "const" },
+            "ori": { "type": "drive", "func": "seq", "Dt":5, "Dw":0.5326,
+                "repeat": 2, "args": [
+                    { "func": "quadratic", "dt": 3, "dz": 2},
+                    { "func": "const", "dt": 2 },
+                    { "func": "quadratic", "dt": 3, "dz": -2}
+                ]
+            }
+        },
+        {
+            "id": "b", "p1": "B0", "p2": "B", "len": { "type": "const" },
+            "ori": { "type": "drive", "Dt": 5, "repeat": 2 }
+        }
+    ],
+    "views": [{
+        "show": "pos", "of": "A", "as": "trace", "ref": "b",
+        "mode": "preview", "Dt": 5, "fill": "#ddd"
+    }]
+}
 
-![view](img/view_2.gif)
+</mec-2>
 
 ```json
 {
@@ -123,5 +206,3 @@ Each of these views is defined by the following properties:
     }]
 }
 ```
-
-![view](img/view_3.gif)
