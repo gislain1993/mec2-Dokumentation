@@ -179,28 +179,31 @@ These different options share a lot of properties, which are:
  - `Dt`: defines the duration of the recording after `t0`.
 
 #### Example
-<mec-2 width="300" height="300" grid cartesian>
+
+<mec-2 width="400" height="300" grid cartesian>
+
 {
-	"nodes":[
-	    { "id": "A0", "x": 100, "y": 50, "base": true },
-		{ "id": "B0", "x": 200, "y": 50,"base": true },
-		{ "id": "B", "x": 125, "y": 125 },
-		{ "id": "A", "x": 175, "y": 125 }
-	    ],		
-	"constraints":[
-	    { "id": "a", "p1": "A0", "p2": "A", "len": { "type": "const" }},
-		{ "id": "b", "p1": "A", "p2": "B", "len": { "type": "const" },
-		"ori": { "type": "drive", "func": "linear", "Dt": 5, "repeat":2 }},
-		{ "id": "c", "p1": "B0", "p2": "B", "len": { "type": "const" }}
-			],
-	"views": [
-        		{ "show": "pole", "of": "b", "as": "trace",
-          		"mode": "static", "t0": 0.02, "Dt": 9.98, "fill": "#90ee9088" },
-        		{ "show": "pole", "of": "b", "ref": "b", "as": "trace",
-          		"mode": "static", "t0": 0.02, "Dt": 9.98, "fill": "#eeeeee88" }
-    		]
-		}
-</mec-2>
+    "nodes": [
+        { "id": "A0", "x": 100, "y": 50, "base": true, "idloc": "s" },
+        { "id": "B0", "x": 200, "y": 50, "base": true, "idloc": "s" },
+        { "id": "A", "x": 175, "y": 150, "idloc": "ne" },
+        { "id": "B", "x": 125, "y": 150, "idloc": "nw" }
+    ],
+    "constraints": [
+        { "id": "a", "p1": "A0", "p2": "A", "len": { "type": "const" } },
+        { "id": "b", "p1": "A", "p2": "B", "len": { "type": "const" },
+          "ori": { "type": "drive", "func": "linear", "Dt": 5, "repeat": 2 } },
+        { "id": "c", "p1": "B0", "p2": "B", "len": { "type": "const" } }
+    ],
+    "views": [
+        { "show": "pole", "of": "b", "as": "trace",
+          "mode": "static", "t0": 0.02, "Dt": 9.98, "fill": "#90ee9088" },
+        { "show": "pole", "of": "b", "ref": "b", "as": "trace",
+          "mode": "static", "t0": 0.02, "Dt": 9.98, "fill": "#eeeeee88" }
+    ]
+}
+
+</mec2>
 
 ```html
 {
@@ -225,7 +228,6 @@ These different options share a lot of properties, which are:
 }
 
 ```
-
 
 ### Model rendering
 

@@ -153,28 +153,28 @@ These different options share a lot of properties, which are:</p>
 <li><code>Dt</code>: defines the duration of the recording after <code>t0</code>.</li>
 </ul>
 <h4 id="example">Example <a class="plnk" href="#example">#</a></h4>
-<mec-2 width="300" height="300" grid cartesian>
-{
-	"nodes":[
-	    { "id": "A0", "x": 100, "y": 50, "base": true },
-		{ "id": "B0", "x": 200, "y": 50,"base": true },
-		{ "id": "B", "x": 125, "y": 125 },
-		{ "id": "A", "x": 175, "y": 125 }
-	    ],		
-	"constraints":[
-	    { "id": "a", "p1": "A0", "p2": "A", "len": { "type": "const" }},
-		{ "id": "b", "p1": "A", "p2": "B", "len": { "type": "const" },
-		"ori": { "type": "drive", "func": "linear", "Dt": 5, "repeat":2 }},
-		{ "id": "c", "p1": "B0", "p2": "B", "len": { "type": "const" }}
-			],
-	"views": [
-        		{ "show": "pole", "of": "b", "as": "trace",
-          		"mode": "static", "t0": 0.02, "Dt": 9.98, "fill": "#90ee9088" },
-        		{ "show": "pole", "of": "b", "ref": "b", "as": "trace",
-          		"mode": "static", "t0": 0.02, "Dt": 9.98, "fill": "#eeeeee88" }
-    		]
-		}
-</mec-2>
+<mec-2 width="400" height="300" grid cartesian>
+<p>{
+&quot;nodes&quot;: [
+{ &quot;id&quot;: &quot;A0&quot;, &quot;x&quot;: 100, &quot;y&quot;: 50, &quot;base&quot;: true, &quot;idloc&quot;: &quot;s&quot; },
+{ &quot;id&quot;: &quot;B0&quot;, &quot;x&quot;: 200, &quot;y&quot;: 50, &quot;base&quot;: true, &quot;idloc&quot;: &quot;s&quot; },
+{ &quot;id&quot;: &quot;A&quot;, &quot;x&quot;: 175, &quot;y&quot;: 150, &quot;idloc&quot;: &quot;ne&quot; },
+{ &quot;id&quot;: &quot;B&quot;, &quot;x&quot;: 125, &quot;y&quot;: 150, &quot;idloc&quot;: &quot;nw&quot; }
+],
+&quot;constraints&quot;: [
+{ &quot;id&quot;: &quot;a&quot;, &quot;p1&quot;: &quot;A0&quot;, &quot;p2&quot;: &quot;A&quot;, &quot;len&quot;: { &quot;type&quot;: &quot;const&quot; } },
+{ &quot;id&quot;: &quot;b&quot;, &quot;p1&quot;: &quot;A&quot;, &quot;p2&quot;: &quot;B&quot;, &quot;len&quot;: { &quot;type&quot;: &quot;const&quot; },
+&quot;ori&quot;: { &quot;type&quot;: &quot;drive&quot;, &quot;func&quot;: &quot;linear&quot;, &quot;Dt&quot;: 5, &quot;repeat&quot;: 2 } },
+{ &quot;id&quot;: &quot;c&quot;, &quot;p1&quot;: &quot;B0&quot;, &quot;p2&quot;: &quot;B&quot;, &quot;len&quot;: { &quot;type&quot;: &quot;const&quot; } }
+],
+&quot;views&quot;: [
+{ &quot;show&quot;: &quot;pole&quot;, &quot;of&quot;: &quot;b&quot;, &quot;as&quot;: &quot;trace&quot;,
+&quot;mode&quot;: &quot;static&quot;, &quot;t0&quot;: 0.02, &quot;Dt&quot;: 9.98, &quot;fill&quot;: &quot;#90ee9088&quot; },
+{ &quot;show&quot;: &quot;pole&quot;, &quot;of&quot;: &quot;b&quot;, &quot;ref&quot;: &quot;b&quot;, &quot;as&quot;: &quot;trace&quot;,
+&quot;mode&quot;: &quot;static&quot;, &quot;t0&quot;: 0.02, &quot;Dt&quot;: 9.98, &quot;fill&quot;: &quot;#eeeeee88&quot; }
+]
+}</p>
+</mec2>
 <pre><code class="code-line language-html"><div>{
     "nodes": [
         { "id": "A0", "x": 100, "y": 50, "base": true, "idloc": "s" },
