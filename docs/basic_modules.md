@@ -65,9 +65,6 @@ For nodes and constraints (and all other modules) to be delegated in the `model`
 
 `nodes` are two dimensional particles.
 
-<!-- TODO die gif is mist... -->
-
-
 They are described by the following properties:
 - `id` - A unique id to identify single nodes. Ambiguities are not allowed.
 - `x` and `y` - Cartesian coordinates in relation to the origin.
