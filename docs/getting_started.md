@@ -180,8 +180,7 @@ These different options share a lot of properties, which are:
 
 #### Example
 
-<mec-2 width="400" height="300" grid cartesian>
-
+<mec-2 width="300" height="300" grid cartesian>
 {
     "nodes": [
         { "id": "A0", "x": 100, "y": 50, "base": true, "idloc": "s" },
@@ -202,8 +201,7 @@ These different options share a lot of properties, which are:
           "mode": "static", "t0": 0.02, "Dt": 9.98, "fill": "#eeeeee88" }
     ]
 }
-
-</mec2>
+</mec-2>
 
 ```html
 {
@@ -226,7 +224,6 @@ These different options share a lot of properties, which are:
           "mode": "static", "t0": 0.02, "Dt": 9.98, "fill": "#eeeeee88" }
     ]
 }
-
 ```
 
 ### Model rendering
