@@ -23,6 +23,8 @@ ${data.math ? `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/d
 <main>
 ${data.content}
 </main>
+<script src="${data.base}/js/g2.html.js"></script>
+<script src="${data.base}/js/mec2.html.js"></script>
 <footer>
   <span class="left">&copy; My Site</span>
   <span class="center">powered by &mu;JAM &amp; VSCode &mdash; hosted by GitHub</span>
