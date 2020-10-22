@@ -9,14 +9,13 @@
 
 ---
 
-  - [Extension: g2.ext]({base}/microjam.md/g2.ext.html)
   - [Extension: g2.mec]({base}/microjam.md/g2.mec.html)
   - [Extension: g2.chart]({base}/microjam.md/g2.chart.html)
 
 ---
 
-  - [API: g2.core]({base}/api/g2.core)
-  - [API: g2.ext]({base}/api/g2.ext)
-  - [API: g2.mec]({base}/api/g2.mec)
-  - [API: g2.chart]({base}/api/g2.chart)
+  - [API: g2.core]({base}/api/g2.core.md)
+  - [API: g2.ext]({base}/api/g2.ext.md)
+  - [API: g2.mec]({base}/api/g2.mec.md)
+  - [API: g2.chart]({base}/api/g2.chart.md)
 

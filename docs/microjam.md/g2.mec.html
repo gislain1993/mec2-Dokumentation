@@ -1,0 +1,1653 @@
+<!doctype html>
+  <html class="theme-light">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=no">
+  <meta name="description" content="mec2-drive">
+  <meta name="date" content="Tue Jun 09 2020 02:00:00 GMT+0200 (Central European Summer Time)">
+  <meta name="keywords" content="">
+  <title>mec2-drive</title>
+  <link rel="shortcut icon" type="image/png" href="../img/favicon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.18.1/styles/vs2015.min.css">
+  
+  <link rel="stylesheet" href="../theme/styles.css">
+  </head>
+  <body id="top">
+  <header>
+  <a href="../index.html" class="right">mec2</a>
+  <a href="../microjam.md/g2.mec.html" class="left">Drive</a>
+  <a href="https://github.com/goessner/mec2"">
+    <svg height="32" viewBox="0 0 16 16" width="32"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z"></path></svg>
+  </a>
+  </header>
+  <main>
+    <nav>
+       <ul>
+<li><a href="../microjam.md/getting_started.html">Getting started</a></li>
+<li><a href="../microjam.md/basic_modules.html">Basic modules</a></li>
+<li><a href="../microjam.md/loads.html">Loads</a></li>
+<li><a href="../microjam.md/drive.html">Drive</a></li>
+<li><a href="../microjam.md/views.html">Views</a></li>
+<li><a href="../microjam.md/shapes.html">Shapes</a></li>
+<li><a href="../microjam.md/mec2.html.html">Custom HTML Element</a></li>
+</ul>
+<hr>
+<ul>
+<li><a href="../microjam.md/g2.ext.html">Extension: g2.ext</a></li>
+<li><a href="../microjam.md/g2.mec.html">Extension: g2.mec</a></li>
+<li><a href="../microjam.md/g2.chart.html">Extension: g2.chart</a></li>
+</ul>
+<hr>
+<ul>
+<li><a href="../api/g2.core">API: g2.core</a></li>
+<li><a href="../api/g2.ext">API: g2.ext</a></li>
+<li><a href="../api/g2.mec">API: g2.mec</a></li>
+<li><a href="../api/g2.chart">API: g2.chart</a></li>
+</ul>
+
+    </nav>
+    <article>
+  <h2 id="g2-e28792-codeg2code">g2 ⇒ <a href="#g2"><code>g2</code></a> <a class="plnk" href="#g2-e28792-codeg2code">#</a></h2>
+<p>Mechanical extensions. (Requires cartesian coordinates)</p>
+<p><strong>Kind</strong>: global typedef<br>
+<strong>Requires</strong>: <code>module:g2.core.js</code>, <code>module:g2.ext.js</code><br>
+<strong>Author</strong>: Stefan Goessner<br>
+<strong>License</strong>: MIT License</p>
+<ul>
+<li><a href="#g2">g2</a> ⇒ <a href="#g2"><code>g2</code></a>
+<ul>
+<li><em>instance</em>
+<ul>
+<li><a href="#g2dim">.dim()</a> ⇒ <code>object</code></li>
+<li><a href="#g2adim">.adim()</a> ⇒ <code>object</code></li>
+<li><a href="#g2vec">.vec()</a> ⇒ <code>object</code></li>
+<li><a href="#g2avec">.avec()</a> ⇒ <code>object</code></li>
+<li><a href="#g2slider">.slider()</a> ⇒ <code>object</code></li>
+<li><a href="#g2spring">.spring()</a> ⇒ <code>object</code></li>
+<li><a href="#g2damper">.damper()</a> ⇒ <code>object</code></li>
+<li><a href="#g2link">.link()</a> ⇒ <code>object</code></li>
+<li><a href="#g2link2">.link2()</a> ⇒ <code>object</code></li>
+<li><a href="#g2beam">.beam()</a> ⇒ <code>object</code></li>
+<li><a href="#g2beam2">.beam2()</a> ⇒ <code>object</code></li>
+<li><a href="#g2bar">.bar()</a> ⇒ <code>object</code></li>
+<li><a href="#g2bar2">.bar2()</a> ⇒ <code>object</code></li>
+<li><a href="#g2pulley">.pulley()</a> ⇒ <code>object</code></li>
+<li><a href="#g2pulley2">.pulley2()</a> ⇒ <code>object</code></li>
+<li><a href="#g2rope">.rope()</a> ⇒ <code>object</code></li>
+<li><a href="#g2ground">.ground()</a> ⇒ <code>object</code></li>
+<li><a href="#g2load">.load()</a> ⇒ <code>object</code></li>
+<li><a href="#g2pol">.pol()</a> ⇒ <code>object</code></li>
+<li><a href="#g2gnd">.gnd()</a> ⇒ <code>object</code></li>
+<li><a href="#g2nod">.nod()</a> ⇒ <code>object</code></li>
+<li><a href="#g2dblnod">.dblnod()</a> ⇒ <code>object</code></li>
+<li><a href="#g2nodfix">.nodfix()</a> ⇒ <code>object</code></li>
+<li><a href="#g2nodflt">.nodflt()</a> ⇒ <code>object</code></li>
+<li><a href="#g2origin">.origin()</a> ⇒ <code>object</code></li>
+</ul>
+</li>
+<li><em>static</em>
+<ul>
+<li><a href="#g2state">.State</a> : <code>object</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a name="g2+dim"></a></p>
+<h3 id="g2dim-e28792-codeobjectcode">g2.dim() ⇒ <code>object</code> <a class="plnk" href="#g2dim-e28792-codeobjectcode">#</a></h3>
+<p>Dimension</p>
+<p><strong>Kind</strong>: instance method of <a href="#g2"><code>g2</code></a><br>
+<strong>Returns</strong>: <code>object</code> - g2</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>object</code></td>
+<td>dimension arguments object.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x1</td>
+<td><code>number</code></td>
+<td></td>
+<td>start x coordinate.</td>
+</tr>
+<tr>
+<td>y1</td>
+<td><code>number</code></td>
+<td></td>
+<td>start y coordinate.</td>
+</tr>
+<tr>
+<td>x2</td>
+<td><code>number</code></td>
+<td></td>
+<td>end x coordinate.</td>
+</tr>
+<tr>
+<td>y2</td>
+<td><code>number</code></td>
+<td></td>
+<td>end y coordinate.</td>
+</tr>
+<tr>
+<td>off</td>
+<td><code>number</code></td>
+<td></td>
+<td>offset.</td>
+</tr>
+<tr>
+<td>over</td>
+<td><code>number</code></td>
+<td></td>
+<td>overshoot of offset lines.</td>
+</tr>
+<tr>
+<td>[inside]</td>
+<td><code>boolean</code></td>
+<td><code>true</code></td>
+<td>draw dimension arrows between or outside of ticks.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="code-line language-js"><div>g2().dim({<span class="hljs-attr">x1</span>:<span class="hljs-number">60</span>,<span class="hljs-attr">y1</span>:<span class="hljs-number">40</span>,<span class="hljs-attr">x2</span>:<span class="hljs-number">190</span>,<span class="hljs-attr">y2</span>:<span class="hljs-number">120</span>})
+</div></code></pre>
+<p><a name="g2+adim"></a></p>
+<h3 id="g2adim-e28792-codeobjectcode">g2.adim() ⇒ <code>object</code> <a class="plnk" href="#g2adim-e28792-codeobjectcode">#</a></h3>
+<p>Angular dimension</p>
+<p><strong>Kind</strong>: instance method of <a href="#g2"><code>g2</code></a><br>
+<strong>Returns</strong>: <code>object</code> - g2</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>object</code></td>
+<td>angular dimension arguments.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td><code>number</code></td>
+<td></td>
+<td>start x coordinate.</td>
+</tr>
+<tr>
+<td>y</td>
+<td><code>number</code></td>
+<td></td>
+<td>start y coordinate.</td>
+</tr>
+<tr>
+<td>r</td>
+<td><code>number</code></td>
+<td></td>
+<td>radius</td>
+</tr>
+<tr>
+<td>[w]</td>
+<td><code>number</code></td>
+<td><code>0</code></td>
+<td>start angle (in radian).</td>
+</tr>
+<tr>
+<td>[dw]</td>
+<td><code>number</code></td>
+<td><code>Math.PI/2</code></td>
+<td>angular range in radian. In case of positive values it is running counterclockwise with                                       right handed (cartesian) coordinate system.</td>
+</tr>
+<tr>
+<td>[inside]</td>
+<td><code>boolean</code></td>
+<td><code>true</code></td>
+<td>draw dimension arrows between or outside of ticks.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="code-line language-js"><div>g2().adim({<span class="hljs-attr">x</span>:<span class="hljs-number">100</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">70</span>,<span class="hljs-attr">r</span>:<span class="hljs-number">50</span>,<span class="hljs-attr">w</span>:pi/<span class="hljs-number">3</span>,<span class="hljs-attr">dw</span>:<span class="hljs-number">4</span>*pi/<span class="hljs-number">3</span>})
+</div></code></pre>
+<p><a name="g2+vec"></a></p>
+<h3 id="g2vec-e28792-codeobjectcode">g2.vec() ⇒ <code>object</code> <a class="plnk" href="#g2vec-e28792-codeobjectcode">#</a></h3>
+<p>Draw vector arrow.</p>
+<p><strong>Kind</strong>: instance method of <a href="#g2"><code>g2</code></a><br>
+<strong>Returns</strong>: <code>object</code> - g2</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>object</code></td>
+<td>vector arguments object.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x1</td>
+<td><code>number</code></td>
+<td>start x coordinate.</td>
+</tr>
+<tr>
+<td>y1</td>
+<td><code>number</code></td>
+<td>start y coordinate.</td>
+</tr>
+<tr>
+<td>x2</td>
+<td><code>number</code></td>
+<td>end x coordinate.</td>
+</tr>
+<tr>
+<td>y2</td>
+<td><code>number</code></td>
+<td>end y coordinate.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="code-line language-js"><div>g2().vec({<span class="hljs-attr">x1</span>:<span class="hljs-number">50</span>,<span class="hljs-attr">y1</span>:<span class="hljs-number">20</span>,<span class="hljs-attr">x2</span>:<span class="hljs-number">250</span>,<span class="hljs-attr">y2</span>:<span class="hljs-number">120</span>})
+</div></code></pre>
+<p><a name="g2+avec"></a></p>
+<h3 id="g2avec-e28792-codeobjectcode">g2.avec() ⇒ <code>object</code> <a class="plnk" href="#g2avec-e28792-codeobjectcode">#</a></h3>
+<p>Draw vector with an angle</p>
+<p><strong>Kind</strong>: instance method of <a href="#g2"><code>g2</code></a><br>
+<strong>Returns</strong>: <code>object</code> - g2</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>object</code></td>
+<td>angle vector arguments object</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td><code>number</code></td>
+<td></td>
+<td>x-value center.</td>
+</tr>
+<tr>
+<td>y</td>
+<td><code>number</code></td>
+<td></td>
+<td>y-value center.</td>
+</tr>
+<tr>
+<td>r</td>
+<td><code>number</code></td>
+<td></td>
+<td>radius.</td>
+</tr>
+<tr>
+<td>[w]</td>
+<td><code>number</code></td>
+<td><code>0</code></td>
+<td>start angle (in radian).</td>
+</tr>
+<tr>
+<td>[dw]</td>
+<td><code>number</code></td>
+<td><code>2*pi</code></td>
+<td>angular range in Radians.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="code-line language-js"><div>g2().avec({<span class="hljs-attr">x</span>:<span class="hljs-number">300</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">400</span>,<span class="hljs-attr">r</span>:<span class="hljs-number">390</span>,<span class="hljs-attr">w</span>:-<span class="hljs-built_in">Math</span>.PI/<span class="hljs-number">4</span>,<span class="hljs-attr">dw</span>:-<span class="hljs-built_in">Math</span>.PI/<span class="hljs-number">2</span>})
+    .exe(ctx);
+</div></code></pre>
+<p><a name="g2+slider"></a></p>
+<h3 id="g2slider-e28792-codeobjectcode">g2.slider() ⇒ <code>object</code> <a class="plnk" href="#g2slider-e28792-codeobjectcode">#</a></h3>
+<p>Draw slider.</p>
+<p><strong>Kind</strong>: instance method of <a href="#g2"><code>g2</code></a><br>
+<strong>Returns</strong>: <code>object</code> - g2</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>object</code></td>
+<td>slider arguments object.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td><code>number</code></td>
+<td></td>
+<td>start x coordinate.</td>
+</tr>
+<tr>
+<td>y</td>
+<td><code>number</code></td>
+<td></td>
+<td>start y coordinate.</td>
+</tr>
+<tr>
+<td>[b]</td>
+<td><code>number</code></td>
+<td><code>32</code></td>
+<td>slider breadth.</td>
+</tr>
+<tr>
+<td>[h]</td>
+<td><code>number</code></td>
+<td><code>16</code></td>
+<td>slider height.</td>
+</tr>
+<tr>
+<td>[w]</td>
+<td><code>number</code></td>
+<td><code>0</code></td>
+<td>rotation.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="code-line language-js"><div>g2().slider({<span class="hljs-attr">x</span>:<span class="hljs-number">150</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">75</span>,<span class="hljs-attr">w</span>:<span class="hljs-built_in">Math</span>.PI/<span class="hljs-number">4</span>,<span class="hljs-attr">b</span>:<span class="hljs-number">64</span>,<span class="hljs-attr">h</span>:<span class="hljs-number">32</span>})
+</div></code></pre>
+<p><a name="g2+spring"></a></p>
+<h3 id="g2spring-e28792-codeobjectcode">g2.spring() ⇒ <code>object</code> <a class="plnk" href="#g2spring-e28792-codeobjectcode">#</a></h3>
+<p>Draw linear spring</p>
+<p><strong>Kind</strong>: instance method of <a href="#g2"><code>g2</code></a><br>
+<strong>Returns</strong>: <code>object</code> - g2</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>object</code></td>
+<td>linear spring arguments object.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x1</td>
+<td><code>number</code></td>
+<td></td>
+<td>start x coordinate.</td>
+</tr>
+<tr>
+<td>y1</td>
+<td><code>number</code></td>
+<td></td>
+<td>start y coordinate.</td>
+</tr>
+<tr>
+<td>x2</td>
+<td><code>number</code></td>
+<td></td>
+<td>end x coordinate.</td>
+</tr>
+<tr>
+<td>y2</td>
+<td><code>number</code></td>
+<td></td>
+<td>end y coordinate.</td>
+</tr>
+<tr>
+<td>[h]</td>
+<td><code>number</code></td>
+<td><code>16</code></td>
+<td>Spring height.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="code-line language-js"><div>g2().spring({<span class="hljs-attr">x1</span>:<span class="hljs-number">50</span>,<span class="hljs-attr">y1</span>:<span class="hljs-number">100</span>,<span class="hljs-attr">x2</span>:<span class="hljs-number">200</span>,<span class="hljs-attr">y2</span>:<span class="hljs-number">75</span>})
+</div></code></pre>
+<p><a name="g2+damper"></a></p>
+<h3 id="g2damper-e28792-codeobjectcode">g2.damper() ⇒ <code>object</code> <a class="plnk" href="#g2damper-e28792-codeobjectcode">#</a></h3>
+<p>Draw line with centered square damper symbol.</p>
+<p><strong>Kind</strong>: instance method of <a href="#g2"><code>g2</code></a><br>
+<strong>Returns</strong>: <code>object</code> - g2</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>object</code></td>
+<td>damper arguments object.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x1</td>
+<td><code>number</code></td>
+<td></td>
+<td>start x coordinate.</td>
+</tr>
+<tr>
+<td>y1</td>
+<td><code>number</code></td>
+<td></td>
+<td>start y coordinate.</td>
+</tr>
+<tr>
+<td>x2</td>
+<td><code>number</code></td>
+<td></td>
+<td>end x coordinate.</td>
+</tr>
+<tr>
+<td>y2</td>
+<td><code>number</code></td>
+<td></td>
+<td>end y coordinate.</td>
+</tr>
+<tr>
+<td>[h]</td>
+<td><code>number</code></td>
+<td><code>16</code></td>
+<td>damper height.  * g2().damper({x1:60,y1:120,x2:200,y2:75})</td>
+</tr>
+</tbody>
+</table>
+<p><a name="g2+link"></a></p>
+<h3 id="g2link-e28792-codeobjectcode">g2.link() ⇒ <code>object</code> <a class="plnk" href="#g2link-e28792-codeobjectcode">#</a></h3>
+<p>Draw polygonial link.</p>
+<p><strong>Kind</strong>: instance method of <a href="#g2"><code>g2</code></a><br>
+<strong>Returns</strong>: <code>object</code> - g2</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>object</code></td>
+<td>link arguments object.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pts</td>
+<td><code>Array.&lt;object&gt;</code> | <code>Array.&lt;Array.&lt;number&gt;&gt;</code> | <code>Array.&lt;number&gt;</code></td>
+<td></td>
+<td>array of points.</td>
+</tr>
+<tr>
+<td>[closed]</td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>closed link.</td>
+</tr>
+<tr>
+<td>x</td>
+<td><code>number</code></td>
+<td></td>
+<td>start x coordinate.</td>
+</tr>
+<tr>
+<td>y</td>
+<td><code>number</code></td>
+<td></td>
+<td>start y coordinate.</td>
+</tr>
+<tr>
+<td>[w]</td>
+<td><code>number</code></td>
+<td><code>0</code></td>
+<td>angle.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="code-line language-js"><div><span class="hljs-keyword">let</span> A = {<span class="hljs-attr">x</span>:<span class="hljs-number">50</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">25</span>},B = {<span class="hljs-attr">x</span>:<span class="hljs-number">150</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">25</span>},
+    C = {<span class="hljs-attr">x</span>:<span class="hljs-number">50</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">75</span>}, D = {<span class="hljs-attr">x</span>:<span class="hljs-number">100</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">75</span>},
+    E = {<span class="hljs-attr">x</span>:<span class="hljs-number">50</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">125</span>};
+g2().view({<span class="hljs-attr">cartesian</span>:<span class="hljs-literal">true</span>})
+    .link({<span class="hljs-attr">pts</span>:[A,B,E,A,D,C]})
+</div></code></pre>
+<p><a name="g2+link2"></a></p>
+<h3 id="g2link2-e28792-codeobjectcode">g2.link2() ⇒ <code>object</code> <a class="plnk" href="#g2link2-e28792-codeobjectcode">#</a></h3>
+<p>Draw alternate glossy polygonial link.</p>
+<p><strong>Kind</strong>: instance method of <a href="#g2"><code>g2</code></a><br>
+<strong>Returns</strong>: <code>object</code> - g2</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>object</code></td>
+<td>link2 arguments object.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pts</td>
+<td><code>Array.&lt;object&gt;</code> | <code>Array.&lt;Array.&lt;number&gt;&gt;</code> | <code>Array.&lt;number&gt;</code></td>
+<td></td>
+<td>array of points.</td>
+</tr>
+<tr>
+<td>[closed]</td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>closed link.</td>
+</tr>
+<tr>
+<td>x</td>
+<td><code>number</code></td>
+<td></td>
+<td>start x coordinate.</td>
+</tr>
+<tr>
+<td>y</td>
+<td><code>number</code></td>
+<td></td>
+<td>start y coordinate.</td>
+</tr>
+<tr>
+<td>[w]</td>
+<td><code>number</code></td>
+<td><code>0</code></td>
+<td>angle.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="code-line language-js"><div><span class="hljs-keyword">let</span> A = {<span class="hljs-attr">x</span>:<span class="hljs-number">50</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">25</span>},B = {<span class="hljs-attr">x</span>:<span class="hljs-number">150</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">25</span>},
+    C = {<span class="hljs-attr">x</span>:<span class="hljs-number">50</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">75</span>}, D = {<span class="hljs-attr">x</span>:<span class="hljs-number">100</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">75</span>},
+    E = {<span class="hljs-attr">x</span>:<span class="hljs-number">50</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">125</span>};
+g2().view({<span class="hljs-attr">cartesian</span>:<span class="hljs-literal">true</span>})
+    .link({<span class="hljs-attr">pts</span>:[A,B,E,A,D,C]})
+</div></code></pre>
+<p><a name="g2+beam"></a></p>
+<h3 id="g2beam-e28792-codeobjectcode">g2.beam() ⇒ <code>object</code> <a class="plnk" href="#g2beam-e28792-codeobjectcode">#</a></h3>
+<p>Draw polygonial beam.</p>
+<p><strong>Kind</strong>: instance method of <a href="#g2"><code>g2</code></a><br>
+<strong>Returns</strong>: <code>object</code> - g2</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>object</code></td>
+<td>beam arguments object.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pts</td>
+<td><code>Array.&lt;object&gt;</code> | <code>Array.&lt;Array.&lt;number&gt;&gt;</code> | <code>Array.&lt;number&gt;</code></td>
+<td></td>
+<td>array of points.</td>
+</tr>
+<tr>
+<td>x</td>
+<td><code>number</code></td>
+<td></td>
+<td>start x coordinate.</td>
+</tr>
+<tr>
+<td>y</td>
+<td><code>number</code></td>
+<td></td>
+<td>start y coordinate.</td>
+</tr>
+<tr>
+<td>[w]</td>
+<td><code>number</code></td>
+<td><code>0</code></td>
+<td>angle.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="code-line language-js"><div>g2().view({cartesian})
+    .beam({<span class="hljs-attr">pts</span>:[[<span class="hljs-number">200</span>,<span class="hljs-number">125</span>][<span class="hljs-number">50</span>,<span class="hljs-number">125</span>][<span class="hljs-number">50</span>,<span class="hljs-number">50</span>][<span class="hljs-number">200</span>,<span class="hljs-number">50</span>]]})
+</div></code></pre>
+<p><a name="g2+beam2"></a></p>
+<h3 id="g2beam2-e28792-codeobjectcode">g2.beam2() ⇒ <code>object</code> <a class="plnk" href="#g2beam2-e28792-codeobjectcode">#</a></h3>
+<p>Draw alternate glossy polygonial beam.</p>
+<p><strong>Kind</strong>: instance method of <a href="#g2"><code>g2</code></a><br>
+<strong>Returns</strong>: <code>object</code> - g2</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>object</code></td>
+<td>beam2 arguments object.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pts</td>
+<td><code>Array.&lt;object&gt;</code> | <code>Array.&lt;Array.&lt;number&gt;&gt;</code> | <code>Array.&lt;number&gt;</code></td>
+<td></td>
+<td>array of points.</td>
+</tr>
+<tr>
+<td>x</td>
+<td><code>number</code></td>
+<td></td>
+<td>start x coordinate.</td>
+</tr>
+<tr>
+<td>y</td>
+<td><code>number</code></td>
+<td></td>
+<td>start y coordinate.</td>
+</tr>
+<tr>
+<td>[w]</td>
+<td><code>number</code></td>
+<td><code>0</code></td>
+<td>angle.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="code-line language-js"><div>g2().view({cartesian})
+    .beam2({<span class="hljs-attr">pts</span>:[[<span class="hljs-number">200</span>,<span class="hljs-number">125</span>][<span class="hljs-number">50</span>,<span class="hljs-number">125</span>][<span class="hljs-number">50</span>,<span class="hljs-number">50</span>][<span class="hljs-number">200</span>,<span class="hljs-number">50</span>]]})
+</div></code></pre>
+<p><a name="g2+bar"></a></p>
+<h3 id="g2bar-e28792-codeobjectcode">g2.bar() ⇒ <code>object</code> <a class="plnk" href="#g2bar-e28792-codeobjectcode">#</a></h3>
+<p>Draw bar.</p>
+<p><strong>Kind</strong>: instance method of <a href="#g2"><code>g2</code></a><br>
+<strong>Returns</strong>: <code>object</code> - g2</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>object</code></td>
+<td>bar arguments object.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x1</td>
+<td><code>number</code></td>
+<td>start x coordinate.</td>
+</tr>
+<tr>
+<td>y1</td>
+<td><code>number</code></td>
+<td>start y coordinate.</td>
+</tr>
+<tr>
+<td>x2</td>
+<td><code>number</code></td>
+<td>end x coordinate.</td>
+</tr>
+<tr>
+<td>y2</td>
+<td><code>number</code></td>
+<td>end y coordinate.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="code-line language-js"><div>g2().bar({<span class="hljs-attr">x1</span>:<span class="hljs-number">50</span>,<span class="hljs-attr">y1</span>:<span class="hljs-number">20</span>,<span class="hljs-attr">x2</span>:<span class="hljs-number">250</span>,<span class="hljs-attr">y2</span>:<span class="hljs-number">120</span>})
+</div></code></pre>
+<p><a name="g2+bar2"></a></p>
+<h3 id="g2bar2-e28792-codeobjectcode">g2.bar2() ⇒ <code>object</code> <a class="plnk" href="#g2bar2-e28792-codeobjectcode">#</a></h3>
+<p>Draw alternate glossy bar.</p>
+<p><strong>Kind</strong>: instance method of <a href="#g2"><code>g2</code></a><br>
+<strong>Returns</strong>: <code>object</code> - g2</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>object</code></td>
+<td>bar2 arguments object.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x1</td>
+<td><code>number</code></td>
+<td>start x coordinate.</td>
+</tr>
+<tr>
+<td>y1</td>
+<td><code>number</code></td>
+<td>start y coordinate.</td>
+</tr>
+<tr>
+<td>x2</td>
+<td><code>number</code></td>
+<td>end x coordinate.</td>
+</tr>
+<tr>
+<td>y2</td>
+<td><code>number</code></td>
+<td>end y coordinate.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="code-line language-js"><div>g2().bar2({<span class="hljs-attr">x1</span>:<span class="hljs-number">50</span>,<span class="hljs-attr">y1</span>:<span class="hljs-number">20</span>,<span class="hljs-attr">x2</span>:<span class="hljs-number">250</span>,<span class="hljs-attr">y2</span>:<span class="hljs-number">120</span>})
+</div></code></pre>
+<p><a name="g2+pulley"></a></p>
+<h3 id="g2pulley-e28792-codeobjectcode">g2.pulley() ⇒ <code>object</code> <a class="plnk" href="#g2pulley-e28792-codeobjectcode">#</a></h3>
+<p>Draw pulley.</p>
+<p><strong>Kind</strong>: instance method of <a href="#g2"><code>g2</code></a><br>
+<strong>Returns</strong>: <code>object</code> - g2</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>object</code></td>
+<td>pulley arguments object.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td><code>number</code></td>
+<td>x-value center.</td>
+</tr>
+<tr>
+<td>y</td>
+<td><code>number</code></td>
+<td>y-value center.</td>
+</tr>
+<tr>
+<td>r</td>
+<td><code>number</code></td>
+<td>radius.</td>
+</tr>
+<tr>
+<td>w</td>
+<td><code>number</code></td>
+<td>angle.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="code-line language-js"><div>g2().pulley({<span class="hljs-attr">x</span>:<span class="hljs-number">100</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">75</span>,<span class="hljs-attr">r</span>:<span class="hljs-number">50</span>})
+</div></code></pre>
+<p><a name="g2+pulley2"></a></p>
+<h3 id="g2pulley2-e28792-codeobjectcode">g2.pulley2() ⇒ <code>object</code> <a class="plnk" href="#g2pulley2-e28792-codeobjectcode">#</a></h3>
+<p>Draw alternate pulley.</p>
+<p><strong>Kind</strong>: instance method of <a href="#g2"><code>g2</code></a><br>
+<strong>Returns</strong>: <code>object</code> - g2</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>object</code></td>
+<td>pulley2 arguments object.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td><code>number</code></td>
+<td>x-value center.</td>
+</tr>
+<tr>
+<td>y</td>
+<td><code>number</code></td>
+<td>y-value center.</td>
+</tr>
+<tr>
+<td>r</td>
+<td><code>number</code></td>
+<td>radius.</td>
+</tr>
+<tr>
+<td>w</td>
+<td><code>number</code></td>
+<td>angle.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="code-line language-js"><div>g2().pulley2({<span class="hljs-attr">x</span>:<span class="hljs-number">50</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">30</span>,<span class="hljs-attr">r</span>:<span class="hljs-number">25</span>})
+</div></code></pre>
+<p><a name="g2+rope"></a></p>
+<h3 id="g2rope-e28792-codeobjectcode">g2.rope() ⇒ <code>object</code> <a class="plnk" href="#g2rope-e28792-codeobjectcode">#</a></h3>
+<p>Draw rope. Amount of pulley radii must be greater than 10 units. They are forced to zero otherwise.</p>
+<p><strong>Kind</strong>: instance method of <a href="#g2"><code>g2</code></a><br>
+<strong>Returns</strong>: <code>object</code> - g2</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>object</code></td>
+<td>rope arguments object.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>p1</td>
+<td><code>object</code> | <code>number</code></td>
+<td>starting point or Coordinate.</td>
+</tr>
+<tr>
+<td>p2</td>
+<td><code>object</code> | <code>number</code></td>
+<td>end point or Coordinate.</td>
+</tr>
+<tr>
+<td>r</td>
+<td><code>number</code></td>
+<td>radius of parent element.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="code-line language-js"><div><span class="hljs-keyword">let</span> A = {<span class="hljs-attr">x</span>:<span class="hljs-number">50</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">30</span>}, B = {<span class="hljs-attr">x</span>:<span class="hljs-number">200</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">75</span>};
+g2().view({<span class="hljs-attr">cartesian</span>:<span class="hljs-literal">true</span>})
+    .pulley({...A,<span class="hljs-attr">r</span>:<span class="hljs-number">20</span>})
+    .pulley2({...B,<span class="hljs-attr">r</span>:<span class="hljs-number">40</span>})
+    .rope({<span class="hljs-attr">p1</span>:A,<span class="hljs-attr">r1</span>:<span class="hljs-number">20</span>,<span class="hljs-attr">p2</span>:B,<span class="hljs-attr">r2</span>:<span class="hljs-number">40</span>})
+</div></code></pre>
+<p><a name="g2+ground"></a></p>
+<h3 id="g2ground-e28792-codeobjectcode">g2.ground() ⇒ <code>object</code> <a class="plnk" href="#g2ground-e28792-codeobjectcode">#</a></h3>
+<p>Polygon ground.</p>
+<p><strong>Kind</strong>: instance method of <a href="#g2"><code>g2</code></a><br>
+<strong>Returns</strong>: <code>object</code> - g2</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>object</code></td>
+<td>ground arguments object.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pts</td>
+<td><code>Array.&lt;object&gt;</code> | <code>Array.&lt;Array.&lt;number&gt;&gt;</code> | <code>Array.&lt;number&gt;</code></td>
+<td></td>
+<td>array of points.</td>
+</tr>
+<tr>
+<td>[closed]</td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>closed polygon.</td>
+</tr>
+<tr>
+<td>[h]</td>
+<td><code>number</code></td>
+<td><code>4</code></td>
+<td>ground shade line width.</td>
+</tr>
+<tr>
+<td>[pos]</td>
+<td><code>string</code></td>
+<td><code>&quot;right&quot;</code></td>
+<td>ground shade position ['left','right'].</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="code-line language-js"><div>g2().ground({<span class="hljs-attr">pts</span>:[<span class="hljs-number">25</span>,<span class="hljs-number">25</span>,<span class="hljs-number">25</span>,<span class="hljs-number">75</span>,<span class="hljs-number">75</span>,<span class="hljs-number">75</span>,<span class="hljs-number">75</span>,<span class="hljs-number">25</span>,<span class="hljs-number">125</span>,<span class="hljs-number">25</span>],<span class="hljs-attr">pos</span>:<span class="hljs-string">'left'</span>})
+</div></code></pre>
+<p><a name="g2+load"></a></p>
+<h3 id="g2load-e28792-codeobjectcode">g2.load() ⇒ <code>object</code> <a class="plnk" href="#g2load-e28792-codeobjectcode">#</a></h3>
+<p>Polygonial line load. The first and last point define the base line onto which
+the load is acting orthogonal.</p>
+<p><strong>Kind</strong>: instance method of <a href="#g2"><code>g2</code></a><br>
+<strong>Returns</strong>: <code>object</code> - g2</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>object</code></td>
+<td>load arguments object.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pts</td>
+<td><code>Array.&lt;object&gt;</code> | <code>Array.&lt;Array.&lt;number&gt;&gt;</code> | <code>Array.&lt;number&gt;</code></td>
+<td>array of points.</td>
+</tr>
+<tr>
+<td>w</td>
+<td><code>number</code></td>
+<td>angle of vectors.</td>
+</tr>
+<tr>
+<td>spacing</td>
+<td><code>number</code></td>
+<td>spacing of the vectors drawn as a positive real number, interprete as<br>                       * spacing &lt; 1: spacing = 1/m with a partition of m.<br>                       * spacing &gt; 1: length of spacing.</td>
+</tr>
+</tbody>
+</table>
+<p><a name="g2+pol"></a></p>
+<h3 id="g2pol-e28792-codeobjectcode">g2.pol() ⇒ <code>object</code> <a class="plnk" href="#g2pol-e28792-codeobjectcode">#</a></h3>
+<p>Creates a symbol at given coordinates.</p>
+<p><strong>Kind</strong>: instance method of <a href="#g2"><code>g2</code></a><br>
+<strong>Returns</strong>: <code>object</code> - g2</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>object</code></td>
+<td>symbol arguments object.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td><code>number</code></td>
+<td>x-value center.</td>
+</tr>
+<tr>
+<td>y</td>
+<td><code>number</code></td>
+<td>y-value center.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="code-line language-js"><div>g2().pol({<span class="hljs-attr">x</span>:<span class="hljs-number">10</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">10</span>})
+</div></code></pre>
+<p><a name="g2+gnd"></a></p>
+<h3 id="g2gnd-e28792-codeobjectcode">g2.gnd() ⇒ <code>object</code> <a class="plnk" href="#g2gnd-e28792-codeobjectcode">#</a></h3>
+<p><strong>Kind</strong>: instance method of <a href="#g2"><code>g2</code></a><br>
+<strong>Returns</strong>: <code>object</code> - g2</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>object</code></td>
+<td>symbol arguments object.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td><code>number</code></td>
+<td>x-value center.</td>
+</tr>
+<tr>
+<td>y</td>
+<td><code>number</code></td>
+<td>y-value center.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="code-line language-js"><div>g2().gnd({<span class="hljs-attr">x</span>:<span class="hljs-number">10</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">10</span>})
+</div></code></pre>
+<p><a name="g2+nod"></a></p>
+<h3 id="g2nod-e28792-codeobjectcode">g2.nod() ⇒ <code>object</code> <a class="plnk" href="#g2nod-e28792-codeobjectcode">#</a></h3>
+<p><strong>Kind</strong>: instance method of <a href="#g2"><code>g2</code></a><br>
+<strong>Returns</strong>: <code>object</code> - g2</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>object</code></td>
+<td>symbol arguments object.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td><code>number</code></td>
+<td>x-value center.</td>
+</tr>
+<tr>
+<td>y</td>
+<td><code>number</code></td>
+<td>y-value center.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="code-line language-js"><div>g2().nod({<span class="hljs-attr">x</span>:<span class="hljs-number">10</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">10</span>})
+</div></code></pre>
+<p><a name="g2+dblnod"></a></p>
+<h3 id="g2dblnod-e28792-codeobjectcode">g2.dblnod() ⇒ <code>object</code> <a class="plnk" href="#g2dblnod-e28792-codeobjectcode">#</a></h3>
+<p><strong>Kind</strong>: instance method of <a href="#g2"><code>g2</code></a><br>
+<strong>Returns</strong>: <code>object</code> - g2</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>object</code></td>
+<td>symbol arguments object.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td><code>number</code></td>
+<td>x-value center.</td>
+</tr>
+<tr>
+<td>y</td>
+<td><code>number</code></td>
+<td>y-value center.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="code-line language-js"><div>g2().dblnod({<span class="hljs-attr">x</span>:<span class="hljs-number">10</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">10</span>})
+</div></code></pre>
+<p><a name="g2+nodfix"></a></p>
+<h3 id="g2nodfix-e28792-codeobjectcode">g2.nodfix() ⇒ <code>object</code> <a class="plnk" href="#g2nodfix-e28792-codeobjectcode">#</a></h3>
+<p>Since some symbols are not symmetrical, the cartesian mode is recommended.</p>
+<p><strong>Kind</strong>: instance method of <a href="#g2"><code>g2</code></a><br>
+<strong>Returns</strong>: <code>object</code> - g2</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>object</code></td>
+<td>symbol arguments object.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td><code>number</code></td>
+<td>x-value center.</td>
+</tr>
+<tr>
+<td>y</td>
+<td><code>number</code></td>
+<td>y-value center.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="code-line language-js"><div>g2().view({<span class="hljs-attr">cartesian</span>:<span class="hljs-literal">true</span>})
+    .nodfix({<span class="hljs-attr">x</span>:<span class="hljs-number">10</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">10</span>})
+</div></code></pre>
+<p><a name="g2+nodflt"></a></p>
+<h3 id="g2nodflt-e28792-codeobjectcode">g2.nodflt() ⇒ <code>object</code> <a class="plnk" href="#g2nodflt-e28792-codeobjectcode">#</a></h3>
+<p><strong>Kind</strong>: instance method of <a href="#g2"><code>g2</code></a><br>
+<strong>Returns</strong>: <code>object</code> - g2</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>object</code></td>
+<td>symbol arguments object.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td><code>number</code></td>
+<td>x-value center.</td>
+</tr>
+<tr>
+<td>y</td>
+<td><code>number</code></td>
+<td>y-value center.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="code-line language-js"><div>g2().view({<span class="hljs-attr">cartesian</span>:<span class="hljs-literal">true</span>})
+    .nodflt({<span class="hljs-attr">x</span>:<span class="hljs-number">10</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">10</span>})
+</div></code></pre>
+<p><a name="g2+origin"></a></p>
+<h3 id="g2origin-e28792-codeobjectcode">g2.origin() ⇒ <code>object</code> <a class="plnk" href="#g2origin-e28792-codeobjectcode">#</a></h3>
+<p><strong>Kind</strong>: instance method of <a href="#g2"><code>g2</code></a><br>
+<strong>Returns</strong>: <code>object</code> - g2</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>object</code></td>
+<td>symbol arguments object.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td><code>number</code></td>
+<td>x-value center.</td>
+</tr>
+<tr>
+<td>y</td>
+<td><code>number</code></td>
+<td>y-value center.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="code-line language-js"><div>g2().view({<span class="hljs-attr">cartesian</span>:<span class="hljs-literal">true</span>})
+    .origin({<span class="hljs-attr">x</span>:<span class="hljs-number">10</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">10</span>})
+</div></code></pre>
+<p><a name="g2.State"></a></p>
+<h3 id="g2state--codeobjectcode">g2.State : <code>object</code> <a class="plnk" href="#g2state--codeobjectcode">#</a></h3>
+<p>Mechanical style values.
+Not really meant to get overwritten. But if you actually want, proceed.<br>
+Theses styles can be referenced using the comfortable '@' syntax.</p>
+<p><strong>Kind</strong>: static namespace of <a href="#g2"><code>g2</code></a><br>
+<strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>State</td>
+<td><code>object</code></td>
+<td></td>
+<td><code>g2</code> state namespace.</td>
+</tr>
+<tr>
+<td>[State.nodcolor]</td>
+<td><code>string</code></td>
+<td><code>&quot;#333&quot;</code></td>
+<td>node color.</td>
+</tr>
+<tr>
+<td>[State.nodfill]</td>
+<td><code>string</code></td>
+<td><code>&quot;#dedede&quot;</code></td>
+<td>node fill color.</td>
+</tr>
+<tr>
+<td>[State.nodfill2]</td>
+<td><code>string</code></td>
+<td><code>&quot;#aeaeae&quot;</code></td>
+<td>alternate node fill color, somewhat darker.</td>
+</tr>
+<tr>
+<td>[State.linkcolor]</td>
+<td><code>string</code></td>
+<td><code>&quot;#666&quot;</code></td>
+<td>link color.</td>
+</tr>
+<tr>
+<td>[State.linkfill]</td>
+<td><code>string</code></td>
+<td><code>&quot;rgba(225,225,225,0.75)&quot;</code></td>
+<td>link fill color, semi-transparent.</td>
+</tr>
+<tr>
+<td>[State.dimcolor]</td>
+<td><code>string</code></td>
+<td><code>&quot;darkslategray&quot;</code></td>
+<td>dimension color.</td>
+</tr>
+<tr>
+<td>[State.solid]</td>
+<td><code>array</code></td>
+<td><code>[]</code></td>
+<td>solid line style.</td>
+</tr>
+<tr>
+<td>[State.dash]</td>
+<td><code>array</code></td>
+<td><code>[15,10]</code></td>
+<td>dashed line style.</td>
+</tr>
+<tr>
+<td>[State.dot]</td>
+<td><code>array</code></td>
+<td><code>[4,4]</code></td>
+<td>dotted line style.</td>
+</tr>
+<tr>
+<td>[State.dashdot]</td>
+<td><code>array</code></td>
+<td><code>[25,6.5,2,6.5]</code></td>
+<td>dashdotted line style.</td>
+</tr>
+<tr>
+<td>[State.labelOffset]</td>
+<td><code>number</code></td>
+<td><code>5</code></td>
+<td>default label offset distance.</td>
+</tr>
+<tr>
+<td>[State.labelSignificantDigits]</td>
+<td><code>number</code></td>
+<td><code>3</code></td>
+<td>default label's significant digits after numbering point.</td>
+</tr>
+</tbody>
+</table>
+
+    </article>
+  </main>
+  <script src="js/g2.html.js"></script>
+  <script src="js/mec2.html.js"></script>
+  <footer>
+    <span class="left">&copy; gislain</span>
+    <span class="center">powered by &mu;Jam &amp; VSCode &mdash; hosted by GitHub</span>
+    <span class="right" onclick="document.documentElement.className = document.documentElement.className === 'theme-dark' ? 'theme-light' : 'theme-dark';">&#9788;</span>
+  </footer>
+  </body>
+  </html>
