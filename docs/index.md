@@ -36,14 +36,24 @@ So the API is minimal and easy to understand. The library is tiny, fast and rend
 ## Minimal Example
 
 ```html
-<canvas id="c" width="200", height="100"></canvas>
-<script src="g2.js"></script>
-<script>
-    const ctx = document.getElementById("c").getContext("2d"); // define context
-    g2().rec({x:40,y:30,b:120,h:40, // create g2 object, add rectangle
-              ls:"green",fs:"orange",lw:3}) // with style properties.
-        .exe(ctx);  // draw to canvas.
-</script>
+<mec-2 width="300" height="300" grid cartesian>
+{
+    "nodes": [
+        {
+            "id":"A0", "x": 150, "y": 120, "base": true
+        }, {
+            "id":"A", "x": 150, "y": 200
+        }
+    ],
+    "constraints": [
+        {
+            "id":"a","p1":"A0","p2":"A",
+            "len":{"type":"const"},
+            "ori":{"type":"drive","repeat":10,"Dt":3 }
+        }
+    ]
+}  
+</mec-2>
 ```
 ## API Reference
 See the [API Reference for g2](api/g2.core.md) for details.

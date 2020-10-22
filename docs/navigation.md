@@ -1,4 +1,4 @@
-  - [Getting started]({base}/microjam.md/getting_Started.html)
+  - [Getting started]({base}/microjam.md/getting_started.html)
   - [Basic modules]({base}/microjam.md/basic_modules.html)
   - [Loads]({base}/microjam.md/loads.html)
   - [Drive]({base}/microjam.md/drive.html)

@@ -70,14 +70,24 @@ So the API is minimal and easy to understand. The library is tiny, fast and rend
 <li>No dependency.</li>
 </ul>
 <h2 id="minimal-example">Minimal Example <a class="plnk" href="#minimal-example">#</a></h2>
-<pre><code class="code-line language-html"><div><span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"c"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"200"</span>, <span class="hljs-attr">height</span>=<span class="hljs-string">"100"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"g2.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
-    <span class="hljs-keyword">const</span> ctx = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"c"</span>).getContext(<span class="hljs-string">"2d"</span>); <span class="hljs-comment">// define context</span>
-    g2().rec({<span class="hljs-attr">x</span>:<span class="hljs-number">40</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">30</span>,<span class="hljs-attr">b</span>:<span class="hljs-number">120</span>,<span class="hljs-attr">h</span>:<span class="hljs-number">40</span>, <span class="hljs-comment">// create g2 object, add rectangle</span>
-              ls:<span class="hljs-string">"green"</span>,<span class="hljs-attr">fs</span>:<span class="hljs-string">"orange"</span>,<span class="hljs-attr">lw</span>:<span class="hljs-number">3</span>}) <span class="hljs-comment">// with style properties.</span>
-        .exe(ctx);  <span class="hljs-comment">// draw to canvas.</span>
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<pre><code class="code-line language-html"><div><span class="hljs-tag">&lt;<span class="hljs-name">mec-2</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"300"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"300"</span> <span class="hljs-attr">grid</span> <span class="hljs-attr">cartesian</span>&gt;</span>
+{
+    "nodes": [
+        {
+            "id":"A0", "x": 150, "y": 120, "base": true
+        }, {
+            "id":"A", "x": 150, "y": 200
+        }
+    ],
+    "constraints": [
+        {
+            "id":"a","p1":"A0","p2":"A",
+            "len":{"type":"const"},
+            "ori":{"type":"drive","repeat":10,"Dt":3 }
+        }
+    ]
+}  
+<span class="hljs-tag">&lt;/<span class="hljs-name">mec-2</span>&gt;</span>
 </div></code></pre>
 <h2 id="api-reference">API Reference <a class="plnk" href="#api-reference">#</a></h2>
 <p>See the <a href="api/g2.core.md">API Reference for g2</a> for details.</p>
