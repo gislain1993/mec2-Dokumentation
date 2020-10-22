@@ -14,8 +14,6 @@
 
 ---
 
-  - [API: g2.core]({base}/api/g2.core.md)
-  - [API: g2.ext]({base}/api/g2.ext.md)
+  - [API: mec2-cheatsheet]({base}/api/mec2-cheatsheet.html)
   - [API: g2.mec]({base}/api/g2.mec.md)
-  - [API: g2.chart]({base}/api/g2.chart.md)
-
+  
