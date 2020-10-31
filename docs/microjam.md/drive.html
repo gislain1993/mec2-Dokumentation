@@ -44,24 +44,25 @@
 
     </nav>
     <article>
-  <h2 id="drives">Drives <a class="plnk" href="#drives">#</a></h2>
-<p>The <code>type</code> of a constraint describes the interactions of two nodes.
-Using only the <code>core</code> module the <code>type</code> can be set as <code>free</code> or <code>const</code> to allow or disallow motion respectively.
-<code>mec2.drive</code> allows this <code>type</code> to be set as <code>drive</code> as well.
-A constraint of <code>type</code> drive has a determined motion, which allows linkages with one degree of freedom to be fully determined.</p>
+  <h2 id="drives"><strong>Drives</strong> <a class="plnk" href="#drives">#</a></h2>
+<p>The <em><code>type</code></em> of a constraint describes the interactions of two nodes.
+Using only the <em><code>core</code></em> module the <em><code>type</code></em> can be set as <em><code>free</code></em> or <em><code>const</code></em> to allow or disallow motion respectively.
+<em><code>mec2.drive</code></em> allows this <em><code>type</code></em> to be set as <em><code>drive</code></em> as well.
+A constraint of <em><code>type</code></em> drive has a determined motion, which allows linkages with one degree of freedom to be fully determined.</p>
 <p>Further properties can be provided to describe the motion (all angles in radiant):</p>
 <ul>
-<li><code>func</code>: The function used to describe the motions. Default is <code>linear</code>. A lot of other functions are implemented after <strong>VDI 2145</strong>, as well as web easing functions.</li>
-<li><code>ref</code>: Use the angle of another constraints as reference.</li>
-<li><code>Dw</code>: Angle of rotation. Default: <code>2 * Math.PI</code>.</li>
-<li><code>t0</code>: Time in milliseconds when to start the drive, after model initialization.</li>
-<li><code>Dt</code>: Time needed for one turn.</li>
-<li><code>bounce</code>: Perform a reversed motion after each interval (<code>bounce</code> is issued between repetitions).</li>
-<li><code>repeat</code>: Repeat the motion this many times.</li>
-<li><code>args</code>: Arguments for sequential functions. Implemented in the second example.</li>
+<li><strong><code>func</code></strong>: The function used to describe the motions. Default is <code>linear</code>. A lot of other functions are implemented after <strong>VDI 2145</strong>, as well as web easing functions.</li>
+<li><strong><code>ref</code></strong>: Use the angle of another constraints as reference.</li>
+<li><strong><code>Dw</code></strong>: Angle of rotation. Default: <code>2 * Math.PI</code>.</li>
+<li><strong><code>t0</code></strong>: Time in milliseconds when to start the drive, after model initialization.</li>
+<li><strong><code>Dt</code></strong>: Time needed for one turn.</li>
+<li><strong><code>bounce</code></strong>: Perform a reversed motion after each interval (<em><code>bounce</code></em> is issued between repetitions).</li>
+<li><strong><code>repeat</code></strong>: Repeat the motion this many times.</li>
+<li><strong><code>args</code></strong>: Arguments for sequential functions. Implemented in the second example.</li>
 </ul>
 <p>Using combinations of these properties a variety of motions can be described.</p>
-<h4 id="example">Example: <a class="plnk" href="#example">#</a></h4>
+<h5 id="example"><strong>Example</strong>: <a class="plnk" href="#example">#</a></h5>
+<aside>
 <mec-2 width="300" height="300" grid cartesian>
 {
     "nodes": [
@@ -80,6 +81,8 @@ A constraint of <code>type</code> drive has a determined motion, which allows li
     ]
 }  
 </mec-2>
+<h5>Fig 11: Drive</h5>
+</aside>
 <pre><code class="code-line language-JSON"><div>{
     <span class="hljs-attr">"nodes"</span>: [
         {
@@ -97,8 +100,9 @@ A constraint of <code>type</code> drive has a determined motion, which allows li
     ]
 }  
 </div></code></pre>
-<h3 id="drive-sequence"><code> Drive Sequence</code> <a class="plnk" href="#drive-sequence">#</a></h3>
-<p>Drive functions can be composed as a sequence (<code>'func':'seq'</code>) of normalized functions, being one of <code>['const', 'linear', 'quadratic', 'harmonic', 'sinoid', 'poly5']</code> each. Every segment of a drive sequence must specify its function type <code>func</code>, its duration <code>dt</code> (always positive) and its value range <code>dz</code> (might be negative).</p>
+<h3 id="drive-sequence"><strong>Drive Sequence</strong> <a class="plnk" href="#drive-sequence">#</a></h3>
+<p>Drive functions can be composed as a sequence (<em><code>'func':'seq'</code></em>) of normalized functions, being one of <em><code>['const', 'linear', 'quadratic', 'harmonic', 'sinoid', 'poly5']</code></em> each. Every segment of a drive sequence must specify its function type <em><code>func</code></em>, its duration <em><code>dt</code></em> (always positive) and its value range <em><code>dz</code></em> (might be negative).</p>
+<aside>
 <mec-2 width="300" height="300" grid cartesian>
 {
     "nodes": [
@@ -121,6 +125,8 @@ A constraint of <code>type</code> drive has a determined motion, which allows li
     ]
 } 
 </mec-2>
+<h5>Fig 11: Drive sequence</h5>
+</aside>
 <pre><code class="code-line language-json"><div>{
     <span class="hljs-attr">"nodes"</span>: [
         {<span class="hljs-attr">"id"</span>:<span class="hljs-string">"A0"</span>,<span class="hljs-attr">"x"</span>:<span class="hljs-number">175</span>,<span class="hljs-attr">"y"</span>:<span class="hljs-number">125</span>,<span class="hljs-attr">"base"</span>:<span class="hljs-literal">true</span>},
@@ -139,7 +145,8 @@ A constraint of <code>type</code> drive has a determined motion, which allows li
     }]
 }
 </div></code></pre>
-<h3 id="drive-reference"><code> Drive reference</code> <a class="plnk" href="#drive-reference">#</a></h3>
+<h3 id="drive-reference"><strong>Drive reference</strong> <a class="plnk" href="#drive-reference">#</a></h3>
+<aside>
 <mec-2 width="300" height="300" grid cartesian>
 {
     "nodes":[
@@ -160,6 +167,8 @@ A constraint of <code>type</code> drive has a determined motion, which allows li
     ]
 }
 </mec-2>
+<h5>Fig 12: Drive reference</h5>
+</aside>
 <pre><code class="code-line language-json"><div>{
     <span class="hljs-attr">"nodes"</span>:[
         { <span class="hljs-attr">"id"</span>: <span class="hljs-string">"A0"</span>, <span class="hljs-attr">"x"</span>: <span class="hljs-number">100</span>, <span class="hljs-attr">"y"</span>: <span class="hljs-number">125</span>, <span class="hljs-attr">"base"</span>: <span class="hljs-literal">true</span> },

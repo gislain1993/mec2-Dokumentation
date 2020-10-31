@@ -9,27 +9,29 @@
 "tags": []
 ---
 
-## Views
+### **Views**
 
 Views can be used to make different properties of the model or single elements of the model visible.
 
-They are implemented, similar to `nodes` and `constraints`, by creating a `views` array and describing single `views` as objects.
+They are implemented, similar to *`nodes`* and *`constraints`*, by creating a *`views`* array and describing single *`views`* as objects.
 
 At the moment there are five different views available:
-- `point` - to show the node position, the center of gravity, the inflection pole, the instance center velocity and the instance center of acceleration
-- `vector` - to show a vector with a conforming orientation and length.
-- `trace` - to show the movement of a point.
-- `info` - to show an info cart.
-- `chart` - to show coherences between different entities.
+- **`point`**: to show the node position, the center of gravity, the inflection pole, the instance center velocity and the instance center of acceleration
+- **`vector`**: to show a vector with a conforming orientation and length.
+- **`trace`**: to show the movement of a point.
+- **`info`**: to show an info cart.
+- **`chart`**: to show coherences between different entities.
 
 Each of these views is defined by the following properties:
-- `show` - Which property is to be shown.
-- `of` - The `id` of the respective element.
-- `as` - Which type of `view` is to be used.
-- `t0` - An offset to the `model.timer` for the `view`.
-- `Dt` - Time interval of the view to be active.
+- **`show`**: Which property is to be shown.
+- **`of`**: The *`id`* of the respective element.
+- **`as`**: Which type of *`view`* is to be used.
+- **`t0`**: An offset to the *`model.timer`* for the *`view`*.
+- **`Dt`**: Time interval of the view to be active.
 
-### Example 1
+#### **Example 1**
+
+<aside>
 <mec-2 width="600" height="350" x0="0" y0="0" grid cartesian nodelabels>
 {
     "nodes": [
@@ -62,8 +64,11 @@ Each of these views is defined by the following properties:
     ]
 }
 </mec-2>
+<h5>Fig 13: Views 1 </h5>
+</aside>
 
 ```json
+<mec-2 width="600" height="350" x0="0" y0="0" grid cartesian nodelabels>
 {
     "nodes": [
         { "id": "A0", "x": 75, "y": 50, "base": true },
@@ -91,14 +96,15 @@ Each of these views is defined by the following properties:
             "mode":"preview", "fill":"orange"
         }, {
             "show": "vel", "of": "C", "as": "vector"
-        }, {
-            "as": "chart", "x": 340, "y": 75, "Dt": 1.9,
-            "show": "wt", "of": "b"
         }
     ]
 }
+</mec-2>
 ```
-### Example 2
+
+#### **Example 2**
+
+<aside>
 <mec-2 width="600" height="350" x0="0" y0="0" grid cartesian nodelabels>
 {
     "nodes": [
@@ -121,6 +127,8 @@ Each of these views is defined by the following properties:
     ]
 }
 </mec-2>
+<h5>Fig 14: Views 2 </h5>
+</aside>
 
 ```json
 {
@@ -144,7 +152,10 @@ Each of these views is defined by the following properties:
     ]
 }
 ```
-### Example 3
+
+#### **Example 3**
+
+<aside>
 <mec-2 width="600" height="350" x0="0" y0="0" grid cartesian nodelabels>
 {
     "nodes": [
@@ -174,8 +185,9 @@ Each of these views is defined by the following properties:
         "mode": "preview", "Dt": 5, "fill": "#ddd"
     }]
 }
-
 </mec-2>
+<h5>Fig 15: Views 3 </h5>
+</aside>
 
 ```json
 {

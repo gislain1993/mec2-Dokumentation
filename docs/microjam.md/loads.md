@@ -9,12 +9,12 @@
 "tags": []
 ---
 
-## Loads
+## **Loads**
 
 * Load elements must have a `id` property of type string.
 * Currently supported are load elements of `type` of `['force', 'spring']`.
 
-### Force
+### **Force**
 
 * Forces are acting on nodes exclusively. The `p` property references a `node` by its `id`.
 * The force value `value` must be a positive number greater than zero interpreted as [`N`]. Default is 1.
@@ -23,6 +23,7 @@
 * A drawing mode `mode` as one of `['push', 'pull']` specifies, how the force arrow is rendered. Default is `pull`.
 
 #### **Example**:
+<aside>
 <mec-2 width="350" height="300" grid cartesian>
 {
     "gravity": true,    
@@ -39,6 +40,8 @@
     }]
 }
 </mec-2>
+<h5>Fig 9: Force</h5>
+</aside>
 
 ```json
 <mec-2 width="300" height="300" grid cartesian>
@@ -60,14 +63,14 @@
 ```
 
 
-### Spring
+### **Springs**
 
 * Springs are acting between to nodes. They are required to have two valid references `p1` and `p2`, just like constraints.
 * The spring rate `k` must be a positive number greater than zero interpreted as [`N/cm`]. Default value is `1`.
 * Initial spring length of the unloaded spring can be set by `len0`. If not specified, the initial distance between `p1` and `p2` is taken.
 
 #### **Example**:
-
+<aside>
 <mec-2 width="350" height="300" grid cartesian>
 {   
     "nodes": [
@@ -87,7 +90,8 @@
     }]
 }
 </mec-2>
-
+<h5>Fig 10.a: Springs</h5>
+</aside>
 
 ```json
 <mec-2 width="350" height="300" grid cartesian>
@@ -111,9 +115,7 @@
 </mec-2>
 ```
 
-
-#### **Example**:
-
+<aside>
 <mec-2 width="350" height="250" grid cartesian>
 {  
     "gravity":true,
@@ -136,6 +138,8 @@
     ]
 }
 </mec-2>
+<h5>Fig 10.b: Springs</h5>
+</aside>
 
 ```json
 <mec-2 width="350" height="300" grid cartesian>

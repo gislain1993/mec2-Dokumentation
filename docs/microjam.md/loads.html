@@ -44,12 +44,12 @@
 
     </nav>
     <article>
-  <h2 id="loads">Loads <a class="plnk" href="#loads">#</a></h2>
+  <h2 id="loads"><strong>Loads</strong> <a class="plnk" href="#loads">#</a></h2>
 <ul>
 <li>Load elements must have a <code>id</code> property of type string.</li>
 <li>Currently supported are load elements of <code>type</code> of <code>['force', 'spring']</code>.</li>
 </ul>
-<h3 id="force">Force <a class="plnk" href="#force">#</a></h3>
+<h3 id="force"><strong>Force</strong> <a class="plnk" href="#force">#</a></h3>
 <ul>
 <li>Forces are acting on nodes exclusively. The <code>p</code> property references a <code>node</code> by its <code>id</code>.</li>
 <li>The force value <code>value</code> must be a positive number greater than zero interpreted as [<code>N</code>]. Default is 1.</li>
@@ -58,6 +58,7 @@
 <li>A drawing mode <code>mode</code> as one of <code>['push', 'pull']</code> specifies, how the force arrow is rendered. Default is <code>pull</code>.</li>
 </ul>
 <h4 id="example"><strong>Example</strong>: <a class="plnk" href="#example">#</a></h4>
+<aside>
 <mec-2 width="350" height="300" grid cartesian>
 {
     "gravity": true,    
@@ -74,6 +75,8 @@
     }]
 }
 </mec-2>
+<h5>Fig 9: Force</h5>
+</aside>
 <pre><code class="code-line language-json"><div>&lt;mec<span class="hljs-number">-2</span> width=<span class="hljs-string">"300"</span> height=<span class="hljs-string">"300"</span> grid cartesian&gt;
 {
     <span class="hljs-attr">"gravity"</span>: <span class="hljs-literal">true</span>,    
@@ -91,13 +94,14 @@
 }
 &lt;/mec<span class="hljs-number">-2</span>&gt;
 </div></code></pre>
-<h3 id="spring">Spring <a class="plnk" href="#spring">#</a></h3>
+<h3 id="springs"><strong>Springs</strong> <a class="plnk" href="#springs">#</a></h3>
 <ul>
 <li>Springs are acting between to nodes. They are required to have two valid references <code>p1</code> and <code>p2</code>, just like constraints.</li>
 <li>The spring rate <code>k</code> must be a positive number greater than zero interpreted as [<code>N/cm</code>]. Default value is <code>1</code>.</li>
 <li>Initial spring length of the unloaded spring can be set by <code>len0</code>. If not specified, the initial distance between <code>p1</code> and <code>p2</code> is taken.</li>
 </ul>
 <h4 id="example"><strong>Example</strong>: <a class="plnk" href="#example">#</a></h4>
+<aside>
 <mec-2 width="350" height="300" grid cartesian>
 {   
     "nodes": [
@@ -117,6 +121,8 @@
     }]
 }
 </mec-2>
+<h5>Fig 10.a: Springs</h5>
+</aside>
 <pre><code class="code-line language-json"><div>&lt;mec<span class="hljs-number">-2</span> width=<span class="hljs-string">"350"</span> height=<span class="hljs-string">"300"</span> grid cartesian&gt;
 {   
     <span class="hljs-attr">"nodes"</span>: [
@@ -137,7 +143,7 @@
 }
 &lt;/mec<span class="hljs-number">-2</span>&gt;
 </div></code></pre>
-<h4 id="example"><strong>Example</strong>: <a class="plnk" href="#example">#</a></h4>
+<aside>
 <mec-2 width="350" height="250" grid cartesian>
 {  
     "gravity":true,
@@ -160,6 +166,8 @@
     ]
 }
 </mec-2>
+<h5>Fig 10.b: Springs</h5>
+</aside>
 <pre><code class="code-line language-json"><div>&lt;mec<span class="hljs-number">-2</span> width=<span class="hljs-string">"350"</span> height=<span class="hljs-string">"300"</span> grid cartesian&gt;
 {  
     <span class="hljs-attr">"gravity"</span>:<span class="hljs-literal">true</span>,

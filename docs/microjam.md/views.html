@@ -44,26 +44,27 @@
 
     </nav>
     <article>
-  <h2 id="views">Views <a class="plnk" href="#views">#</a></h2>
+  <h3 id="views"><strong>Views</strong> <a class="plnk" href="#views">#</a></h3>
 <p>Views can be used to make different properties of the model or single elements of the model visible.</p>
-<p>They are implemented, similar to <code>nodes</code> and <code>constraints</code>, by creating a <code>views</code> array and describing single <code>views</code> as objects.</p>
+<p>They are implemented, similar to <em><code>nodes</code></em> and <em><code>constraints</code></em>, by creating a <em><code>views</code></em> array and describing single <em><code>views</code></em> as objects.</p>
 <p>At the moment there are five different views available:</p>
 <ul>
-<li><code>point</code> - to show the node position, the center of gravity, the inflection pole, the instance center velocity and the instance center of acceleration</li>
-<li><code>vector</code> - to show a vector with a conforming orientation and length.</li>
-<li><code>trace</code> - to show the movement of a point.</li>
-<li><code>info</code> - to show an info cart.</li>
-<li><code>chart</code> - to show coherences between different entities.</li>
+<li><strong><code>point</code></strong>: to show the node position, the center of gravity, the inflection pole, the instance center velocity and the instance center of acceleration</li>
+<li><strong><code>vector</code></strong>: to show a vector with a conforming orientation and length.</li>
+<li><strong><code>trace</code></strong>: to show the movement of a point.</li>
+<li><strong><code>info</code></strong>: to show an info cart.</li>
+<li><strong><code>chart</code></strong>: to show coherences between different entities.</li>
 </ul>
 <p>Each of these views is defined by the following properties:</p>
 <ul>
-<li><code>show</code> - Which property is to be shown.</li>
-<li><code>of</code> - The <code>id</code> of the respective element.</li>
-<li><code>as</code> - Which type of <code>view</code> is to be used.</li>
-<li><code>t0</code> - An offset to the <code>model.timer</code> for the <code>view</code>.</li>
-<li><code>Dt</code> - Time interval of the view to be active.</li>
+<li><strong><code>show</code></strong>: Which property is to be shown.</li>
+<li><strong><code>of</code></strong>: The <em><code>id</code></em> of the respective element.</li>
+<li><strong><code>as</code></strong>: Which type of <em><code>view</code></em> is to be used.</li>
+<li><strong><code>t0</code></strong>: An offset to the <em><code>model.timer</code></em> for the <em><code>view</code></em>.</li>
+<li><strong><code>Dt</code></strong>: Time interval of the view to be active.</li>
 </ul>
-<h3 id="example">Example 1 <a class="plnk" href="#example">#</a></h3>
+<h4 id="example-1"><strong>Example 1</strong> <a class="plnk" href="#example-1">#</a></h4>
+<aside>
 <mec-2 width="600" height="350" x0="0" y0="0" grid cartesian nodelabels>
 {
     "nodes": [
@@ -96,7 +97,10 @@
     ]
 }
 </mec-2>
-<pre><code class="code-line language-json"><div>{
+<h5>Fig 13: Views 1 </h5>
+</aside>
+<pre><code class="code-line language-json"><div>&lt;mec<span class="hljs-number">-2</span> width=<span class="hljs-string">"600"</span> height=<span class="hljs-string">"350"</span> x<span class="hljs-number">0</span>=<span class="hljs-string">"0"</span> y<span class="hljs-number">0</span>=<span class="hljs-string">"0"</span> grid cartesian nodelabels&gt;
+{
     <span class="hljs-attr">"nodes"</span>: [
         { <span class="hljs-attr">"id"</span>: <span class="hljs-string">"A0"</span>, <span class="hljs-attr">"x"</span>: <span class="hljs-number">75</span>, <span class="hljs-attr">"y"</span>: <span class="hljs-number">50</span>, <span class="hljs-attr">"base"</span>: <span class="hljs-literal">true</span> },
         { <span class="hljs-attr">"id"</span>: <span class="hljs-string">"A"</span>, <span class="hljs-attr">"x"</span>: <span class="hljs-number">75</span>, <span class="hljs-attr">"y"</span>: <span class="hljs-number">100</span> },
@@ -123,14 +127,13 @@
             <span class="hljs-attr">"mode"</span>:<span class="hljs-string">"preview"</span>, <span class="hljs-attr">"fill"</span>:<span class="hljs-string">"orange"</span>
         }, {
             <span class="hljs-attr">"show"</span>: <span class="hljs-string">"vel"</span>, <span class="hljs-attr">"of"</span>: <span class="hljs-string">"C"</span>, <span class="hljs-attr">"as"</span>: <span class="hljs-string">"vector"</span>
-        }, {
-            <span class="hljs-attr">"as"</span>: <span class="hljs-string">"chart"</span>, <span class="hljs-attr">"x"</span>: <span class="hljs-number">340</span>, <span class="hljs-attr">"y"</span>: <span class="hljs-number">75</span>, <span class="hljs-attr">"Dt"</span>: <span class="hljs-number">1.9</span>,
-            <span class="hljs-attr">"show"</span>: <span class="hljs-string">"wt"</span>, <span class="hljs-attr">"of"</span>: <span class="hljs-string">"b"</span>
         }
     ]
 }
+&lt;/mec<span class="hljs-number">-2</span>&gt;
 </div></code></pre>
-<h3 id="example">Example 2 <a class="plnk" href="#example">#</a></h3>
+<h4 id="example-2"><strong>Example 2</strong> <a class="plnk" href="#example-2">#</a></h4>
+<aside>
 <mec-2 width="600" height="350" x0="0" y0="0" grid cartesian nodelabels>
 {
     "nodes": [
@@ -153,6 +156,8 @@
     ]
 }
 </mec-2>
+<h5>Fig 14: Views 2 </h5>
+</aside>
 <pre><code class="code-line language-json"><div>{
     <span class="hljs-attr">"nodes"</span>: [
         { <span class="hljs-attr">"id"</span>: <span class="hljs-string">"A0"</span>, <span class="hljs-attr">"x"</span>: <span class="hljs-number">100</span>, <span class="hljs-attr">"y"</span>: <span class="hljs-number">50</span>, <span class="hljs-attr">"base"</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">"idloc"</span>: <span class="hljs-string">"s"</span> },
@@ -174,7 +179,8 @@
     ]
 }
 </div></code></pre>
-<h3 id="example">Example 3 <a class="plnk" href="#example">#</a></h3>
+<h4 id="example-3"><strong>Example 3</strong> <a class="plnk" href="#example-3">#</a></h4>
+<aside>
 <mec-2 width="600" height="350" x0="0" y0="0" grid cartesian nodelabels>
 {
     "nodes": [
@@ -205,6 +211,8 @@
     }]
 }
 </mec-2>
+<h5>Fig 15: Views 3 </h5>
+</aside>
 <pre><code class="code-line language-json"><div>{
     <span class="hljs-attr">"nodes"</span>: [
         { <span class="hljs-attr">"id"</span>: <span class="hljs-string">"A0"</span>, <span class="hljs-attr">"x"</span>: <span class="hljs-number">50</span>, <span class="hljs-attr">"y"</span>: <span class="hljs-number">200</span>, <span class="hljs-attr">"base"</span> :<span class="hljs-literal">true</span> },

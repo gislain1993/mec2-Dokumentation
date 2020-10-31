@@ -9,28 +9,28 @@
 "tags": []
 ---
 
-## Drives
+## **Drives**
 
-The `type` of a constraint describes the interactions of two nodes.
-Using only the `core` module the `type` can be set as `free` or `const` to allow or disallow motion respectively.
-`mec2.drive` allows this `type` to be set as `drive` as well.
-A constraint of `type` drive has a determined motion, which allows linkages with one degree of freedom to be fully determined.
+The *`type`* of a constraint describes the interactions of two nodes.
+Using only the *`core`* module the *`type`* can be set as *`free`* or *`const`* to allow or disallow motion respectively.
+*`mec2.drive`* allows this *`type`* to be set as *`drive`* as well.
+A constraint of *`type`* drive has a determined motion, which allows linkages with one degree of freedom to be fully determined.
 
 Further properties can be provided to describe the motion (all angles in radiant):
 
-- `func`: The function used to describe the motions. Default is `linear`. A lot of other functions are implemented after **VDI 2145**, as well as web easing functions.
-- `ref`: Use the angle of another constraints as reference.
-- `Dw`: Angle of rotation. Default: `2 * Math.PI`.
-- `t0`: Time in milliseconds when to start the drive, after model initialization.
-- `Dt`: Time needed for one turn.
-- `bounce`: Perform a reversed motion after each interval (`bounce` is issued between repetitions).
-- `repeat`: Repeat the motion this many times.
-- `args`: Arguments for sequential functions. Implemented in the second example.
+- **`func`**: The function used to describe the motions. Default is `linear`. A lot of other functions are implemented after **VDI 2145**, as well as web easing functions.
+- **`ref`**: Use the angle of another constraints as reference.
+- **`Dw`**: Angle of rotation. Default: `2 * Math.PI`.
+- **`t0`**: Time in milliseconds when to start the drive, after model initialization.
+- **`Dt`**: Time needed for one turn.
+- **`bounce`**: Perform a reversed motion after each interval (*`bounce`* is issued between repetitions).
+- **`repeat`**: Repeat the motion this many times.
+- **`args`**: Arguments for sequential functions. Implemented in the second example.
 
 Using combinations of these properties a variety of motions can be described.
 
-#### Example:
-
+##### **Example**:
+<aside>
 <mec-2 width="300" height="300" grid cartesian>
 {
     "nodes": [
@@ -49,6 +49,8 @@ Using combinations of these properties a variety of motions can be described.
     ]
 }  
 </mec-2>
+<h5>Fig 11: Drive</h5>
+</aside>
 
 ```JSON
 {
@@ -70,10 +72,10 @@ Using combinations of these properties a variety of motions can be described.
 ```
 
 
-### ` Drive Sequence`
+### **Drive Sequence**
 
-Drive functions can be composed as a sequence (`'func':'seq'`) of normalized functions, being one of `['const', 'linear', 'quadratic', 'harmonic', 'sinoid', 'poly5']` each. Every segment of a drive sequence must specify its function type `func`, its duration `dt` (always positive) and its value range `dz` (might be negative).
-
+Drive functions can be composed as a sequence (*`'func':'seq'`*) of normalized functions, being one of *`['const', 'linear', 'quadratic', 'harmonic', 'sinoid', 'poly5']`* each. Every segment of a drive sequence must specify its function type *`func`*, its duration *`dt`* (always positive) and its value range *`dz`* (might be negative).
+<aside>
 <mec-2 width="300" height="300" grid cartesian>
 {
     "nodes": [
@@ -96,7 +98,8 @@ Drive functions can be composed as a sequence (`'func':'seq'`) of normalized fun
     ]
 } 
 </mec-2>
-
+<h5>Fig 11: Drive sequence</h5>
+</aside>
 
 ```json
 {
@@ -117,8 +120,9 @@ Drive functions can be composed as a sequence (`'func':'seq'`) of normalized fun
     }]
 }
 ```
-### ` Drive reference`
 
+### **Drive reference**
+<aside>
 <mec-2 width="300" height="300" grid cartesian>
 {
     "nodes":[
@@ -139,6 +143,8 @@ Drive functions can be composed as a sequence (`'func':'seq'`) of normalized fun
     ]
 }
 </mec-2>
+<h5>Fig 12: Drive reference</h5>
+</aside>
 
 ```json
 {

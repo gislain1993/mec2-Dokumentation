@@ -9,26 +9,26 @@
 "tags": []
 ---
 
-### Shapes
+### **Shapes**
 
 It is possible to stylize elements with geometric forms or images.
-Those `shapes` are only cosmetic and serve no functional purpose.
+Those *`shapes`* are only cosmetic and serve no functional purpose.
 
-All `shapes` need a `p` or similar references node `id`s.
-
+All *`shapes`* need a *`p`* or similar references node *`id`s*.
 
 Predefined types for geometries are:
-- `fix`: Marks a `node` as stationary. `w0` determines an angle. Default: 0.
-- `flt`: Same as `fix`, but marks `node` as being movable translational.
-- `slider`: Same as `flt`, but represents a movable slider.
-- `bar`: Connect `node` `p1` and `node` `p2` using a bar.
-- `beam`: Same as `bar`, but using only one `p`. Reference an angle of a constraint with `wref` and define the length of the beam with `len`.
-- `wheel`: Draw a `wheel` on a `node`. `wref` a constraint for the angle.
-- `poly`: Same as `beam`, but instead of a `beam`, a polygon is drawn using a `pts` array of coordinates.
-- `img`: Import an image using [g2's image function](https://github.com/goessner/g2/wiki/Elements#images).
+- **`fix`**: Marks a *`node`* as stationary. *`w0`* determines an angle. Default: 0.
+- **`flt`**: Same as *`fix`*, but marks *`node`* as being movable translational.
+- **`slider`**: Same as *`flt`*, but represents a movable slider.
+- **`bar`**: Connect *`node` `p1`* and *`node` `p2`* using a bar.
+- **`beam`**: Same as *`bar`*, but using only one *`p`*. Reference an angle of a constraint with *`wref`* and define the length of the beam with *`len`*.
+- **`wheel`**: Draw a *`wheel`* on a *`node`. `wref`* a constraint for the angle.
+- **`poly`**: Same as *`beam`*, but instead of a *`beam`*, a polygon is drawn using a *`pts`* array of coordinates.
+- **`img`**: Import an image using [g2's image function](https://github.com/goessner/g2/wiki/Elements#images).
 
-### Examples
+#### **Example 1**
 
+<aside>
 <mec-2 width="701" height="301" grid cartesian x0="100" y0="25">
         {
             "nodes": [
@@ -57,6 +57,8 @@ Predefined types for geometries are:
             ]
         }
     </mec-2>
+<h5>Fig 16: Shapes of fis and flt </h5>
+</aside>
 
 ```json
 <mec-2 width="701" height="301" grid cartesian x0="100" y0="25">
@@ -88,6 +90,10 @@ Predefined types for geometries are:
         }
     </mec-2>
 ```
+
+#### **Example 2**
+
+<aside>
 <mec-2 width="400" height="600" x0="0" y0="0" grid cartesian nodelabels>
 {
     "nodes": [
@@ -107,4 +113,5 @@ Predefined types for geometries are:
     ]
 }
 </mec-2>
-
+<h5>Fig 17: Shapes of image </h5>
+</aside>
