@@ -57,7 +57,7 @@ Predefined types for geometries are:
             ]
         }
     </mec-2>
-<h5>Fig 16: Shapes of fis and flt </h5>
+<h5>Fig 16: Shapes of fix and flt </h5>
 </aside>
 
 ```json
