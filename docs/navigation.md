@@ -15,6 +15,6 @@
 
 ---
 
-  - [API: mec2-cheatsheet]({base}/api/mec2-cheatsheet.html)
+  - [API: mec2-cheatsheet]({base}/api/Cheatsheet.html)
   - [API: g2.mec]({base}/api/g2.mec.md)
   
