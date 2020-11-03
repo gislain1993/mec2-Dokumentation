@@ -114,6 +114,7 @@ main a:hover {
 color: var(--color-hover);
 text-decoration: none;
 }
+
 main > nav {
 grid-column: 1;
 background: var(--bgcol-main);
@@ -123,6 +124,7 @@ top: 0.5rem;
 margin: 0.5em 0.5em 0.5em 0;
 border-right: 1px solid var(--bgcol-header);
 align-self: start;
+height: 100vh;
 }
 
 nav ul {

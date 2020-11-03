@@ -4,7 +4,7 @@
   - [Drive]({base}/microjam.md/drive.html)
   - [Views]({base}/microjam.md/views.html)
   - [Shapes]({base}/microjam.md/shapes.html)
-  - [Cheatsheet mec-2]({base}/microjam.md/Cheatsheet.html)
+  - [Cheatsheet mec-2]({base}/microjam.md/cheatsheetMec2.html)
   - [Custom HTML Element]({base}/microjam.md/mec2.html.html)
   
 
@@ -15,6 +15,6 @@
 
 ---
 
-  - [API: mec2-cheatsheet]({base}/api/Cheatsheet.html)
+  - [API: mec2-cheatsheet]({base}/api/cheatsheetMec2.html)
   - [API: g2.mec]({base}/api/g2.mec.md)
   
