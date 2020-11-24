@@ -31,7 +31,7 @@ Using combinations of these properties a variety of motions can be described.
 
 ##### **Example**:
 <aside>
-<mec-2 width="300" height="300" grid cartesian>
+<mec-2 width="300" height="300" grid x0="-5" y0="0" cartesian>
 {
     "nodes": [
         {
@@ -76,7 +76,7 @@ Using combinations of these properties a variety of motions can be described.
 
 Drive functions can be composed as a sequence (*`'func':'seq'`*) of normalized functions, being one of *`['const', 'linear', 'quadratic', 'harmonic', 'sinoid', 'poly5']`* each. Every segment of a drive sequence must specify its function type *`func`*, its duration *`dt`* (always positive) and its value range *`dz`* (might be negative).
 <aside>
-<mec-2 width="300" height="300" grid cartesian>
+<mec-2 width="300" height="300" grid x0="-10" y0="0" cartesian>
 {
     "nodes": [
         {"id":"A0","x":175,"y":125,"base":true},
@@ -123,7 +123,7 @@ Drive functions can be composed as a sequence (*`'func':'seq'`*) of normalized f
 
 ### **Drive reference**
 <aside>
-<mec-2 width="300" height="300" grid cartesian>
+<mec-2 width="300" height="300" grid x0="0" y0="10" cartesian>
 {
     "nodes":[
         { "id": "A0", "x": 100, "y": 125, "base": true },

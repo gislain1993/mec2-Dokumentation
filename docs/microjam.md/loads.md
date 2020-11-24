@@ -24,7 +24,7 @@
 
 #### **Example**:
 <aside>
-<mec-2 width="350" height="300" grid cartesian>
+<mec-2 width="350" height="300" grid x0="10" y0="10" cartesian>
 {
     "gravity": true,    
     "nodes": [       

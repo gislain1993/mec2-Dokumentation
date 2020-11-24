@@ -35,7 +35,7 @@ to draw and simulate Model of mechanismus like these hier.
 </g-2>
 <h5>Fig 1: first sketch</h5>
 <aside>
-<mec-2 width="350" height="200" grid cartesian>
+<mec-2 width="350" height="200" grid x0="-10" y0="-40" cartesian>
         {
             "nodes": [
                 { "id": "A0", "x": 75, "y": 125, "base": true },

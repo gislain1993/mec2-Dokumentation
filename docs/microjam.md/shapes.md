@@ -29,7 +29,7 @@ Predefined types for geometries are:
 #### **Example 1**
 
 <aside>
-<mec-2 width="701" height="301" grid cartesian x0="100" y0="25">
+<mec-2 width="501" height="301" grid cartesian x0="80" y0="25">
         {
             "nodes": [
                 { "id": "A0", "x": 75, "y": 125, "base": true },

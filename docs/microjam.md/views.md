@@ -156,7 +156,7 @@ Each of these views is defined by the following properties:
 #### **Example 3**
 
 <aside>
-<mec-2 width="600" height="350" x0="0" y0="0" grid cartesian nodelabels>
+<mec-2 width="300" height="350" x0="0" y0="20" grid cartesian nodelabels>
 {
     "nodes": [
         { "id": "A0", "x": 50, "y": 200, "base" :true },

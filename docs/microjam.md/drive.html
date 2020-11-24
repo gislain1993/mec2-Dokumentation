@@ -63,7 +63,7 @@ A constraint of <em><code>type</code></em> drive has a determined motion, which 
 <p>Using combinations of these properties a variety of motions can be described.</p>
 <h5 id="example"><strong>Example</strong>: <a class="plnk" href="#example">#</a></h5>
 <aside>
-<mec-2 width="300" height="300" grid cartesian>
+<mec-2 width="300" height="300" grid x0="-5" y0="0" cartesian>
 {
     "nodes": [
         {
@@ -103,7 +103,7 @@ A constraint of <em><code>type</code></em> drive has a determined motion, which 
 <h3 id="drive-sequence"><strong>Drive Sequence</strong> <a class="plnk" href="#drive-sequence">#</a></h3>
 <p>Drive functions can be composed as a sequence (<em><code>'func':'seq'</code></em>) of normalized functions, being one of <em><code>['const', 'linear', 'quadratic', 'harmonic', 'sinoid', 'poly5']</code></em> each. Every segment of a drive sequence must specify its function type <em><code>func</code></em>, its duration <em><code>dt</code></em> (always positive) and its value range <em><code>dz</code></em> (might be negative).</p>
 <aside>
-<mec-2 width="300" height="300" grid cartesian>
+<mec-2 width="300" height="300" grid x0="-10" y0="0" cartesian>
 {
     "nodes": [
         {"id":"A0","x":175,"y":125,"base":true},
@@ -147,7 +147,7 @@ A constraint of <em><code>type</code></em> drive has a determined motion, which 
 </div></code></pre>
 <h3 id="drive-reference"><strong>Drive reference</strong> <a class="plnk" href="#drive-reference">#</a></h3>
 <aside>
-<mec-2 width="300" height="300" grid cartesian>
+<mec-2 width="300" height="300" grid x0="0" y0="10" cartesian>
 {
     "nodes":[
         { "id": "A0", "x": 100, "y": 125, "base": true },
