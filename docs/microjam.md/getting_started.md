@@ -22,7 +22,7 @@ Models are described using the human and machine readable `JSON` format.
 ### **what can we draw with it?**
 
 to draw and simulate Model of mechanismus like these hier.
-<g-2 width="300" height="110" x0="0" y0="0" cartesian>
+<g-2 width="300" height="110" x0="0" y0="-10" cartesian>
 { "main":[
     {"c":"bar","a":{"x1":40,"y1":20,"x2":100,"y2":80,"lbloc":0.75}},
     {"c":"bar","a":{"x1":100,"y1":80,"x2":280,"y2":20,"lbloc":0.75}},
