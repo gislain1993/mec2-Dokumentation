@@ -32,7 +32,7 @@ Each of these views is defined by the following properties:
 #### **Example 1**
 
 <aside>
-<mec-2 width="600" height="350" x0="0" y0="0" grid cartesian nodelabels>
+<mec-2 width="320" height="250" x0="0" y0="20" grid cartesian nodelabels>
 {
     "nodes": [
         { "id": "A0", "x": 75, "y": 50, "base": true },
@@ -105,7 +105,7 @@ Each of these views is defined by the following properties:
 #### **Example 2**
 
 <aside>
-<mec-2 width="600" height="350" x0="0" y0="0" grid cartesian nodelabels>
+<mec-2 width="300" height="300" x0="0" y0="0" grid cartesian nodelabels>
 {
     "nodes": [
         { "id": "A0", "x": 100, "y": 50, "base": true, "idloc": "s" },
