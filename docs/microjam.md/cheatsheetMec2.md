@@ -10,9 +10,11 @@
 ---
 ### Abstract
 
-## Prerequisite
+## **Prerequisite**
 
-<aside>
+Use the code shown in the first code listing to implement mec-2 custom html element with attributes you desire to table 1.
+
+<aside style="min-width:10%">
 
 ```HTML
 <mec-2 width="400" height="300" x0="0" y0="0" grid cartesian nodelabels>
@@ -21,12 +23,8 @@
 }
 </mec-2>
 ```
-
-#### Listing 1: Custom HTML-tag for mec-2
-
+##### Listing 1: Custom HTML-tag for mec-2
 </aside>
-
-Use the code shown in the first code listing to implement mec-2 custom html element with attributes you desire to table 1.
 
 #### Table 1: Attributes of the mec-2 element
 
@@ -48,7 +46,7 @@ Use the code shown in the first code listing to implement mec-2 custom html elem
 
 ## **[*Nodes*](https://goessner.github.io/mec2/microjam.md/getting_started.html#nodes)**
 
-<aside style="min-width: 50%">
+<aside style="min-width: 10%">
 
 ```HTML
 <mec-2 width="240" height="250" x0="70" y0="70" grid cartesian nodelabels>
@@ -60,8 +58,7 @@ Use the code shown in the first code listing to implement mec-2 custom html elem
 }
 </mec-2>
 ```
-
-#### example 1: Implementation of nodes
+##### example 1: Implementation of nodes
 
 <mec-2 width="300" height="70" x0="70" y0="-40" grid cartesian nodelabels>
 {
@@ -72,7 +69,7 @@ Use the code shown in the first code listing to implement mec-2 custom html elem
 }
 </mec-2>
 
-#### fig 1: Result of example 1
+##### fig 1: Result of example 1
 
 </aside>
 
@@ -111,7 +108,8 @@ Create a node by giving the required properties. Don't forget to put the propert
 }  
 </mec-2>
 ````
-#### example 2: Implementation of contraints
+
+##### example 2: Implementation of contraints
 
 </aside>
 
@@ -147,7 +145,7 @@ The constraint defines the relationship between two nodes. i.e. in order to defi
 }  
 </mec-2>
 
-#### fig 2: Result of constraints
+##### fig 2: Result of constraints
 
 </figure>
 
@@ -176,7 +174,7 @@ we have two main types of loads. firstly forces and secondly springs:
 }
 </mec-2>
 
-#### fig 3: result of forces
+##### fig 3: result of forces
 </aside>
 
 | Required properties | Type of value | Comment |
@@ -205,7 +203,7 @@ we have two main types of loads. firstly forces and secondly springs:
 }
 </mec-2>
 ```
-#### example 3: Implementation of force
+##### example 3: Implementation of force
 
   ### Springs
 
@@ -231,7 +229,7 @@ we have two main types of loads. firstly forces and secondly springs:
 }
 </mec-2>
 
-#### fig 4: Result of springs
+##### fig 4: Result of springs
 
 </aside>
 
@@ -264,7 +262,7 @@ we have two main types of loads. firstly forces and secondly springs:
 }
 </mec-2>
 ```
-#### Example 4: Implementation of springs
+##### Example 4: Implementation of springs
 
 <aside>
 <mec-2 width="350" height="350" x0="0" y0="0" grid cartesian nodelabels>
@@ -300,7 +298,7 @@ we have two main types of loads. firstly forces and secondly springs:
 }
 </mec-2>
 
-#### fig 5: result of views
+##### fig 5: result of views
 
 </aside>
 
@@ -355,7 +353,7 @@ Views can be used to make different properties of the model or single elements o
 }
 </mec-2>
 ```
-#### example 5: implementation of views
+##### example 5: implementation of views
 
 ## [*Shapes*](https://goessner.github.io/mec2/microjam.md/shapes.html)
 
@@ -389,7 +387,7 @@ Views can be used to make different properties of the model or single elements o
         }
     </mec-2>
 
-  #### fig 6: result of shapes
+  ##### fig 6: result of shapes
   </aside>
 
 to stylize elements with geometric forms or images.
@@ -430,4 +428,4 @@ to stylize elements with geometric forms or images.
         }
     </mec-2>
   ```
-#### example 6:Implementation of shapes
+##### example 6:Implementation of shapes

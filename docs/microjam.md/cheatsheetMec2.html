@@ -29,7 +29,6 @@
 <li><a href="../microjam.md/drive.html">Drive</a></li>
 <li><a href="../microjam.md/views.html">Views</a></li>
 <li><a href="../microjam.md/shapes.html">Shapes</a></li>
-<li><a href="../microjam.md/cheatsheetMec2.html">Cheatsheet mec-2</a></li>
 <li><a href="../microjam.md/mec2.html.html">Custom HTML Element</a></li>
 </ul>
 <hr>
@@ -46,17 +45,17 @@
     </nav>
     <article>
   <h3 id="abstract">Abstract <a class="plnk" href="#abstract">#</a></h3>
-<h2 id="prerequisite">Prerequisite <a class="plnk" href="#prerequisite">#</a></h2>
-<aside>
+<h2 id="prerequisite"><strong>Prerequisite</strong> <a class="plnk" href="#prerequisite">#</a></h2>
+<p>Use the code shown in the first code listing to implement mec-2 custom html element with attributes you desire to table 1.</p>
+<aside style="min-width:10%">
 <pre><code class="code-line language-HTML"><div><span class="hljs-tag">&lt;<span class="hljs-name">mec-2</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"400"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"300"</span> <span class="hljs-attr">x0</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">y0</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">grid</span> <span class="hljs-attr">cartesian</span> <span class="hljs-attr">nodelabels</span>&gt;</span>
 {
 
 }
 <span class="hljs-tag">&lt;/<span class="hljs-name">mec-2</span>&gt;</span>
 </div></code></pre>
-<h4 id="listing-1-custom-html-tag-for-mec-2">Listing 1: Custom HTML-tag for mec-2 <a class="plnk" href="#listing-1-custom-html-tag-for-mec-2">#</a></h4>
+<h5 id="listing-1-custom-html-tag-for-mec">Listing 1: Custom HTML-tag for mec-2 <a class="plnk" href="#listing-1-custom-html-tag-for-mec">#</a></h5>
 </aside>
-<p>Use the code shown in the first code listing to implement mec-2 custom html element with attributes you desire to table 1.</p>
 <h4 id="table-1-attributes-of-the-mec-2-element">Table 1: Attributes of the mec-2 element <a class="plnk" href="#table-1-attributes-of-the-mec-2-element">#</a></h4>
 <table>
 <thead>
@@ -135,7 +134,7 @@
 </tbody>
 </table>
 <h2 id="nodes"><strong><a href="https://goessner.github.io/mec2/microjam.md/getting_started.html#nodes"><em>Nodes</em></a></strong> <a class="plnk" href="#nodes">#</a></h2>
-<aside style="min-width: 50%">
+<aside style="min-width: 10%">
 <pre><code class="code-line language-HTML"><div><span class="hljs-tag">&lt;<span class="hljs-name">mec-2</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"240"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"250"</span> <span class="hljs-attr">x0</span>=<span class="hljs-string">"70"</span> <span class="hljs-attr">y0</span>=<span class="hljs-string">"70"</span> <span class="hljs-attr">grid</span> <span class="hljs-attr">cartesian</span> <span class="hljs-attr">nodelabels</span>&gt;</span>
 {
 "nodes": [
@@ -145,7 +144,7 @@
 }
 <span class="hljs-tag">&lt;/<span class="hljs-name">mec-2</span>&gt;</span>
 </div></code></pre>
-<h4 id="example-1-implementation-of-nodes">example 1: Implementation of nodes <a class="plnk" href="#example-1-implementation-of-nodes">#</a></h4>
+<h5 id="example-1-implementation-of-nodes">example 1: Implementation of nodes <a class="plnk" href="#example-1-implementation-of-nodes">#</a></h5>
 <mec-2 width="300" height="70" x0="70" y0="-40" grid cartesian nodelabels>
 {
 "nodes": [
@@ -154,7 +153,7 @@
   ]
 }
 </mec-2>
-<h4 id="fig-1-result-of-example-1">fig 1: Result of example 1 <a class="plnk" href="#fig-1-result-of-example-1">#</a></h4>
+<h5 id="fig-1-result-of-example">fig 1: Result of example 1 <a class="plnk" href="#fig-1-result-of-example">#</a></h5>
 </aside>
 <p>Create a node by giving the required properties. Don't forget to put the propertie key into quotation marks.</p>
 <table>
@@ -219,7 +218,7 @@
 }  
 <span class="hljs-tag">&lt;/<span class="hljs-name">mec-2</span>&gt;</span>
 </div></code></pre>
-<h4 id="example-2-implementation-of-contraints">example 2: Implementation of contraints <a class="plnk" href="#example-2-implementation-of-contraints">#</a></h4>
+<h5 id="example-2-implementation-of-contraints">example 2: Implementation of contraints <a class="plnk" href="#example-2-implementation-of-contraints">#</a></h5>
 </aside>
 <p>The constraint defines the relationship between two nodes. i.e. in order to define a constraint, two nodes must first of all be defined.</p>
 <table>
@@ -287,7 +286,7 @@
     ]
 }  
 </mec-2>
-<h4 id="fig-2-result-of-constraints">fig 2: Result of constraints <a class="plnk" href="#fig-2-result-of-constraints">#</a></h4>
+<h5 id="fig-2-result-of-constraints">fig 2: Result of constraints <a class="plnk" href="#fig-2-result-of-constraints">#</a></h5>
 </figure>
 <h2 id="loads"><strong><a href="https://goessner.github.io/mec2/microjam.md/loads.html"><em>Loads</em></a></strong> <a class="plnk" href="#loads">#</a></h2>
 <p>we have two main types of loads. firstly forces and secondly springs:</p>
@@ -309,7 +308,7 @@
     }]
 }
 </mec-2>
-<h4 id="fig-3-result-of-forces">fig 3: result of forces <a class="plnk" href="#fig-3-result-of-forces">#</a></h4>
+<h5 id="fig-3-result-of-forces">fig 3: result of forces <a class="plnk" href="#fig-3-result-of-forces">#</a></h5>
 </aside>
 <table>
 <thead>
@@ -364,7 +363,7 @@
 }
 <span class="hljs-tag">&lt;/<span class="hljs-name">mec-2</span>&gt;</span>
 </div></code></pre>
-<h4 id="example-3-implementation-of-force">example 3: Implementation of force <a class="plnk" href="#example-3-implementation-of-force">#</a></h4>
+<h5 id="example-3-implementation-of-force">example 3: Implementation of force <a class="plnk" href="#example-3-implementation-of-force">#</a></h5>
 <h3 id="springs">Springs <a class="plnk" href="#springs">#</a></h3>
 <aside>
 <mec-2 width="350" height="300" grid cartesian nodelabels>
@@ -386,7 +385,7 @@
     }]
 }
 </mec-2>
-<h4 id="fig-4-result-of-springs">fig 4: Result of springs <a class="plnk" href="#fig-4-result-of-springs">#</a></h4>
+<h5 id="fig-4-result-of-springs">fig 4: Result of springs <a class="plnk" href="#fig-4-result-of-springs">#</a></h5>
 </aside>
 <table>
 <thead>
@@ -444,7 +443,7 @@
 }
 <span class="hljs-tag">&lt;/<span class="hljs-name">mec-2</span>&gt;</span>
 </div></code></pre>
-<h4 id="example-4-implementation-of-springs">Example 4: Implementation of springs <a class="plnk" href="#example-4-implementation-of-springs">#</a></h4>
+<h5 id="example-4-implementation-of-springs">Example 4: Implementation of springs <a class="plnk" href="#example-4-implementation-of-springs">#</a></h5>
 <aside>
 <mec-2 width="350" height="350" x0="0" y0="0" grid cartesian nodelabels>
 {
@@ -478,7 +477,7 @@
     ]
 }
 </mec-2>
-<h4 id="fig-5-result-of-views">fig 5: result of views <a class="plnk" href="#fig-5-result-of-views">#</a></h4>
+<h5 id="fig-5-result-of-views">fig 5: result of views <a class="plnk" href="#fig-5-result-of-views">#</a></h5>
 </aside>
 <h2 id="views"><strong><a href="https://goessner.github.io/mec2/microjam.md/views.html"><em>Views</em></a></strong> <a class="plnk" href="#views">#</a></h2>
 <p>Views can be used to make different properties of the model or single elements of the model visible.</p>
@@ -572,7 +571,7 @@
 }
 <span class="hljs-tag">&lt;/<span class="hljs-name">mec-2</span>&gt;</span>
 </div></code></pre>
-<h4 id="example-5-implementation-of-views">example 5: implementation of views <a class="plnk" href="#example-5-implementation-of-views">#</a></h4>
+<h5 id="example-5-implementation-of-views">example 5: implementation of views <a class="plnk" href="#example-5-implementation-of-views">#</a></h5>
 <h2 id="shapes"><a href="https://goessner.github.io/mec2/microjam.md/shapes.html"><em>Shapes</em></a> <a class="plnk" href="#shapes">#</a></h2>
 <aside>
 <mec-2 width="401" height="301" grid cartesian x0="50" y0="25" nodelabes>
@@ -603,7 +602,7 @@
             ]
         }
     </mec-2>
-<h4 id="fig-6-result-of-shapes">fig 6: result of shapes <a class="plnk" href="#fig-6-result-of-shapes">#</a></h4>
+<h5 id="fig-6-result-of-shapes">fig 6: result of shapes <a class="plnk" href="#fig-6-result-of-shapes">#</a></h5>
   </aside>
 <p>to stylize elements with geometric forms or images.</p>
 <table>
@@ -661,7 +660,7 @@
         }
     <span class="hljs-tag">&lt;/<span class="hljs-name">mec-2</span>&gt;</span>
 </div></code></pre>
-<h4 id="example-6implementation-of-shapes">example 6:Implementation of shapes <a class="plnk" href="#example-6implementation-of-shapes">#</a></h4>
+<h5 id="example-6implementation-of-shapes">example 6:Implementation of shapes <a class="plnk" href="#example-6implementation-of-shapes">#</a></h5>
 
     </article>
   </main>
