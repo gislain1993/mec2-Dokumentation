@@ -52,20 +52,23 @@ For rendering the model the graphics library <code>g2</code> is used.
 To read more about <code>g2</code> have a look <a href="github.com/goessner/g2">here</a>.
 Models are described using the human and machine readable <code>JSON</code> format.</p>
 <h3 id="what-can-we-draw-with-it"><strong>what can we draw with it?</strong> <a class="plnk" href="#what-can-we-draw-with-it">#</a></h3>
-<p>to draw and simulate Model of mechanismus like these hier.
+<p>to draw and simulate Model of mechanismus like these hier.</p>
+<div style="display:flex; align-items:center">
+<div style="text-align:center; align-items:center">
 <g-2 width="300" height="110" x0="0" y0="-10" cartesian>
-{ &quot;main&quot;:[
-{&quot;c&quot;:&quot;bar&quot;,&quot;a&quot;:{&quot;x1&quot;:40,&quot;y1&quot;:20,&quot;x2&quot;:100,&quot;y2&quot;:80,&quot;lbloc&quot;:0.75}},
-{&quot;c&quot;:&quot;bar&quot;,&quot;a&quot;:{&quot;x1&quot;:100,&quot;y1&quot;:80,&quot;x2&quot;:280,&quot;y2&quot;:20,&quot;lbloc&quot;:0.75}},
-{&quot;c&quot;:&quot;nodfix&quot;,&quot;a&quot;:{&quot;x&quot;:40,&quot;y&quot;:20,&quot;label&quot;:&quot;A&quot;,&quot;lbloc&quot;:&quot;nw&quot;}},
-{&quot;c&quot;:&quot;nod&quot;,&quot;a&quot;:{&quot;x&quot;:100,&quot;y&quot;:80,&quot;label&quot;:&quot;B&quot;,&quot;lbloc&quot;:&quot;nw&quot;}},
-{&quot;c&quot;:&quot;nodfix&quot;,&quot;a&quot;:{&quot;x&quot;:40,&quot;y&quot;:20,&quot;label&quot;:&quot;A&quot;,&quot;lbloc&quot;:&quot;nw&quot;}},
-{&quot;c&quot;:&quot;nodflt&quot;,&quot;a&quot;:{&quot;x&quot;:280,&quot;y&quot;:20,&quot;label&quot;:&quot;C&quot;,&quot;lbloc&quot;:&quot;nw&quot;}}
-]
+{ "main":[
+    {"c":"bar","a":{"x1":40,"y1":20,"x2":100,"y2":80,"lbloc":0.75}},
+    {"c":"bar","a":{"x1":100,"y1":80,"x2":280,"y2":20,"lbloc":0.75}},
+    {"c":"nodfix","a":{"x":40,"y":20,"label":"A","lbloc":"nw"}},
+    {"c":"nod","a":{"x":100,"y":80,"label":"B","lbloc":"nw"}},
+    {"c":"nodfix","a":{"x":40,"y":20,"label":"A","lbloc":"nw"}},
+    {"c":"nodflt","a":{"x":280,"y":20,"label":"C","lbloc":"nw"}}
+  ]
 }
-</g-2></p>
+</g-2>
 <h5>Fig 1: first sketch</h5>
-<aside>
+</div>
+<div style="text-align:center; align-items:center">
 <mec-2 width="350" height="200" grid x0="-10" y0="-40" cartesian>
         {
             "nodes": [
@@ -93,8 +96,11 @@ Models are described using the human and machine readable <code>JSON</code> form
         }
  </mec-2>
 <h5>Fig 2: First overview with mec2</h5>  
-</aside>
-<g-2 width="400" height="210" x0="0" y0="0" cartesian>
+</div>
+</div>
+<div style="display:flex; align-items:center">
+<div style="text-align:center">
+<g-2 width="300" height="210" x0="0" y0="0" cartesian>
 { "main":[
     {"c":"bar","a":{"x1":40,"y1":20,"x2":40,"y2":80,"lbloc":0.75}},
     {"c":"bar","a":{"x1":200,"y1":150,"x2":280,"y2":20,"lbloc":0.75}},
@@ -108,6 +114,8 @@ Models are described using the human and machine readable <code>JSON</code> form
 }
 </g-2>
 <h5>Fig 3: second sketch</h5>
+</div>
+<div style="text-align:center">
 <mec-2 width="401" height="201" grid cartesian x0="100" y0="55" nodelabel>
 {   
 "nodes":[
@@ -124,6 +132,8 @@ Models are described using the human and machine readable <code>JSON</code> form
 }
 </mec-2>
 <h5>Fig 4: second overview with mec2</h5>
+</div>
+</div>
 <br>
 <h3 id="which-knowlge-are-important-to-start-with-mec2"><strong>Which Knowlge are important to start with mec2?</strong> <a class="plnk" href="#which-knowlge-are-important-to-start-with-mec2">#</a></h3>
 <p>A <em><code>mec-2</code></em> model can consist of up to 9 different modules.</p>

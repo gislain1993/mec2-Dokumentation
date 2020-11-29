@@ -22,6 +22,9 @@ Models are described using the human and machine readable `JSON` format.
 ### **what can we draw with it?**
 
 to draw and simulate Model of mechanismus like these hier.
+<div style="display:flex; align-items:center">
+<div style="text-align:center; align-items:center">
+
 <g-2 width="300" height="110" x0="0" y0="-10" cartesian>
 { "main":[
     {"c":"bar","a":{"x1":40,"y1":20,"x2":100,"y2":80,"lbloc":0.75}},
@@ -34,7 +37,10 @@ to draw and simulate Model of mechanismus like these hier.
 }
 </g-2>
 <h5>Fig 1: first sketch</h5>
-<aside>
+</div>
+
+
+<div style="text-align:center; align-items:center">
 <mec-2 width="350" height="200" grid x0="-10" y0="-40" cartesian>
         {
             "nodes": [
@@ -61,10 +67,14 @@ to draw and simulate Model of mechanismus like these hier.
             ]
         }
  </mec-2>
-<h5>Fig 2: First overview with mec2</h5>  
-</aside>
 
-<g-2 width="400" height="210" x0="0" y0="0" cartesian>
+<h5>Fig 2: First overview with mec2</h5>  
+</div>
+
+</div>
+<div style="display:flex; align-items:center">
+<div style="text-align:center">
+<g-2 width="300" height="210" x0="0" y0="0" cartesian>
 { "main":[
     {"c":"bar","a":{"x1":40,"y1":20,"x2":40,"y2":80,"lbloc":0.75}},
     {"c":"bar","a":{"x1":200,"y1":150,"x2":280,"y2":20,"lbloc":0.75}},
@@ -78,7 +88,8 @@ to draw and simulate Model of mechanismus like these hier.
 }
 </g-2>
 <h5>Fig 3: second sketch</h5>
-
+</div>
+<div style="text-align:center">
 <mec-2 width="401" height="201" grid cartesian x0="100" y0="55" nodelabel>
 {   
 "nodes":[
@@ -95,6 +106,8 @@ to draw and simulate Model of mechanismus like these hier.
 }
 </mec-2>
 <h5>Fig 4: second overview with mec2</h5>
+</div>
+</div>
 <br>
 
 ### **Which Knowlge are important to start with mec2?**
