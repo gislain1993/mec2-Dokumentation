@@ -24,14 +24,13 @@ Models are described using the human and machine readable `JSON` format.
 to draw and simulate Model of mechanismus like these hier.
 <div style="display:flex; align-items:center">
 <div style="text-align:center; align-items:center">
-
-<g-2 width="300" height="110" x0="0" y0="-10" cartesian>
+<g-2 width="300" height="110" x0="-10" y0="-10" cartesian>
 { "main":[
     {"c":"bar","a":{"x1":40,"y1":20,"x2":100,"y2":80,"lbloc":0.75}},
     {"c":"bar","a":{"x1":100,"y1":80,"x2":280,"y2":20,"lbloc":0.75}},
-    {"c":"nodflt","a":{"x":40,"y":20,"label":"A","lbloc":"nw"}},
+    {"c":"nodfix","a":{"x":40,"y":20,"label":"A","lbloc":"nw"}},
     {"c":"nod","a":{"x":100,"y":80,"label":"B","lbloc":"nw"}},
-    {"c":"nodflt","a":{"x":40,"y":20,"label":"A","lbloc":"nw"}},
+    {"c":"nodfix","a":{"x":40,"y":20,"label":"A","lbloc":"nw"}},
     {"c":"nodflt","a":{"x":280,"y":20,"label":"C","lbloc":"nw"}}
   ]
 }
@@ -82,7 +81,7 @@ to draw and simulate Model of mechanismus like these hier.
     {"c":"nodfix","a":{"x":40,"y":20,"label":"A","lbloc":"nw"}},
     {"c":"nod","a":{"x":40,"y":80,"label":"B","lbloc":"nw"}},
     {"c":"nodfix","a":{"x":40,"y":20,"label":"A","lbloc":"nw"}},
-    {"c":"nodflt","a":{"x":280,"y":20,"label":"C","lbloc":"n"}},
+    {"c":"nodfix","a":{"x":280,"y":20,"label":"C","lbloc":"n"}},
     {"c":"nod","a":{"x":200,"y":150,"label":"","lbloc":"e","label":"D"}}
   ]
 }
