@@ -82,7 +82,7 @@ to draw and simulate Model of mechanismus like these hier.
     {"c":"nodfix","a":{"x":40,"y":20,"label":"A","lbloc":"nw"}},
     {"c":"nod","a":{"x":40,"y":80,"label":"B","lbloc":"nw"}},
     {"c":"nodfix","a":{"x":40,"y":20,"label":"A","lbloc":"nw"}},
-    {"c":"nodfix","a":{"x":280,"y":20,"label":"C","lbloc":"n"}},
+    {"c":"nodflt","a":{"x":280,"y":20,"label":"C","lbloc":"n"}},
     {"c":"nod","a":{"x":200,"y":150,"label":"","lbloc":"e","label":"D"}}
   ]
 }
