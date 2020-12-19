@@ -62,7 +62,7 @@ A constraint of <em><code>type</code></em> drive has a determined motion, which 
 </ul>
 <p>Using combinations of these properties a variety of motions can be described.</p>
 <h5 id="example"><strong>Example</strong>: <a class="plnk" href="#example">#</a></h5>
-<aside>
+<div style="text-align:center">
 <mec-2 width="300" height="300" grid x0="-5" y0="0" cartesian>
 {
     "nodes": [
@@ -82,7 +82,7 @@ A constraint of <em><code>type</code></em> drive has a determined motion, which 
 }  
 </mec-2>
 <h5>Fig 11: Drive</h5>
-</aside>
+</div>
 <pre><code class="code-line language-JSON"><div>{
     <span class="hljs-attr">"nodes"</span>: [
         {
@@ -102,7 +102,7 @@ A constraint of <em><code>type</code></em> drive has a determined motion, which 
 </div></code></pre>
 <h3 id="drive-sequence"><strong>Drive Sequence</strong> <a class="plnk" href="#drive-sequence">#</a></h3>
 <p>Drive functions can be composed as a sequence (<em><code>'func':'seq'</code></em>) of normalized functions, being one of <em><code>['const', 'linear', 'quadratic', 'harmonic', 'sinoid', 'poly5']</code></em> each. Every segment of a drive sequence must specify its function type <em><code>func</code></em>, its duration <em><code>dt</code></em> (always positive) and its value range <em><code>dz</code></em> (might be negative).</p>
-<aside>
+<div style="text-align:center">
 <mec-2 width="300" height="300" grid x0="-20" y0="0" cartesian>
 {
     "nodes": [
@@ -125,8 +125,8 @@ A constraint of <em><code>type</code></em> drive has a determined motion, which 
     ]
 } 
 </mec-2>
-<h5>Fig 11: Drive sequence</h5>
-</aside>
+<h5>Fig 12: Drive sequence</h5>
+</div>
 <pre><code class="code-line language-json"><div>{
     <span class="hljs-attr">"nodes"</span>: [
         {<span class="hljs-attr">"id"</span>:<span class="hljs-string">"A0"</span>,<span class="hljs-attr">"x"</span>:<span class="hljs-number">175</span>,<span class="hljs-attr">"y"</span>:<span class="hljs-number">125</span>,<span class="hljs-attr">"base"</span>:<span class="hljs-literal">true</span>},
@@ -146,7 +146,7 @@ A constraint of <em><code>type</code></em> drive has a determined motion, which 
 }
 </div></code></pre>
 <h3 id="drive-reference"><strong>Drive reference</strong> <a class="plnk" href="#drive-reference">#</a></h3>
-<aside>
+<div style="text-align:center">
 <mec-2 width="340" height="300" grid x0="0" y0="10" cartesian>
 {
     "nodes":[
@@ -167,8 +167,8 @@ A constraint of <em><code>type</code></em> drive has a determined motion, which 
     ]
 }
 </mec-2>
-<h5>Fig 12: Drive reference</h5>
-</aside>
+<h5>Fig 13: Drive reference</h5>
+</div>
 <pre><code class="code-line language-json"><div>{
     <span class="hljs-attr">"nodes"</span>:[
         { <span class="hljs-attr">"id"</span>: <span class="hljs-string">"A0"</span>, <span class="hljs-attr">"x"</span>: <span class="hljs-number">100</span>, <span class="hljs-attr">"y"</span>: <span class="hljs-number">125</span>, <span class="hljs-attr">"base"</span>: <span class="hljs-literal">true</span> },

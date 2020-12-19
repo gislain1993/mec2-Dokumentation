@@ -31,7 +31,7 @@ to draw and simulate Model of mechanismus like these hier.
     {"c":"bar","a":{"x1":100,"y1":80,"x2":280,"y2":20,"lbloc":0.75}},
     {"c":"nodfix","a":{"x":40,"y":20,"label":"A","lbloc":"nw"}},
     {"c":"nod","a":{"x":100,"y":80,"label":"B","lbloc":"nw"}},
-    {"c":"nodfix","a":{"x":40,"y":20,"label":"A","lbloc":"nw"}},
+    {"c":"nodflt","a":{"x":40,"y":20,"label":"A","lbloc":"nw"}},
     {"c":"nodflt","a":{"x":280,"y":20,"label":"C","lbloc":"nw"}}
   ]
 }
@@ -82,7 +82,7 @@ to draw and simulate Model of mechanismus like these hier.
     {"c":"nodfix","a":{"x":40,"y":20,"label":"A","lbloc":"nw"}},
     {"c":"nod","a":{"x":40,"y":80,"label":"B","lbloc":"nw"}},
     {"c":"nodfix","a":{"x":40,"y":20,"label":"A","lbloc":"nw"}},
-    {"c":"nodflt","a":{"x":280,"y":20,"label":"C","lbloc":"n"}},
+    {"c":"nodfix","a":{"x":280,"y":20,"label":"C","lbloc":"n"}},
     {"c":"nod","a":{"x":200,"y":150,"label":"","lbloc":"e","label":"D"}}
   ]
 }
@@ -106,6 +106,8 @@ to draw and simulate Model of mechanismus like these hier.
 }
 </mec-2>
 <h5>Fig 4: second overview with mec2</h5>
+
+
 </div>
 </div>
 <br>

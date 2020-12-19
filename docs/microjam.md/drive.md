@@ -30,7 +30,8 @@ Further properties can be provided to describe the motion (all angles in radiant
 Using combinations of these properties a variety of motions can be described.
 
 ##### **Example**:
-<aside>
+
+<div style="text-align:center">
 <mec-2 width="300" height="300" grid x0="-5" y0="0" cartesian>
 {
     "nodes": [
@@ -50,7 +51,8 @@ Using combinations of these properties a variety of motions can be described.
 }  
 </mec-2>
 <h5>Fig 11: Drive</h5>
-</aside>
+</div>
+
 
 ```JSON
 {
@@ -75,7 +77,8 @@ Using combinations of these properties a variety of motions can be described.
 ### **Drive Sequence**
 
 Drive functions can be composed as a sequence (*`'func':'seq'`*) of normalized functions, being one of *`['const', 'linear', 'quadratic', 'harmonic', 'sinoid', 'poly5']`* each. Every segment of a drive sequence must specify its function type *`func`*, its duration *`dt`* (always positive) and its value range *`dz`* (might be negative).
-<aside>
+
+<div style="text-align:center">
 <mec-2 width="300" height="300" grid x0="-20" y0="0" cartesian>
 {
     "nodes": [
@@ -98,8 +101,9 @@ Drive functions can be composed as a sequence (*`'func':'seq'`*) of normalized f
     ]
 } 
 </mec-2>
-<h5>Fig 11: Drive sequence</h5>
-</aside>
+<h5>Fig 12: Drive sequence</h5>
+</div>
+
 
 ```json
 {
@@ -122,7 +126,8 @@ Drive functions can be composed as a sequence (*`'func':'seq'`*) of normalized f
 ```
 
 ### **Drive reference**
-<aside>
+
+<div style="text-align:center">
 <mec-2 width="340" height="300" grid x0="0" y0="10" cartesian>
 {
     "nodes":[
@@ -143,8 +148,9 @@ Drive functions can be composed as a sequence (*`'func':'seq'`*) of normalized f
     ]
 }
 </mec-2>
-<h5>Fig 12: Drive reference</h5>
-</aside>
+<h5>Fig 13: Drive reference</h5>
+</div>
+
 
 ```json
 {
